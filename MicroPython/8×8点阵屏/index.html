@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>18.8×8点阵屏 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "18.8\u00d78\u70b9\u9635\u5c4f";
+        var mkdocs_page_input_path = "MicroPython\\8\u00d78\u70b9\u9635\u5c4f.md";
+        var mkdocs_page_url = "/MicroPython/8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">18.8×8点阵屏</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#88_1">实验一：8×8点阵屏的显示</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#88_2">实验二：8×8点阵屏的显示单个字符</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">实验三：点阵屏显示多个字符</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">18.8×8点阵屏</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="88">8×8点阵屏</h3>
+<hr />
+<h4 id="_1">准备工作</h4>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8×8点阵屏</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">PH2.0双头线</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="16-1.jpg" src="../../img/16-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8×8点阵屏-GND</td>
+<td style="text-align: center;">P5</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8×8点阵屏-VCC</td>
+<td style="text-align: center;">P5</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8×8点阵屏-DIN</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8×8点阵屏-CS</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">8×8点阵屏-CLK</td>
+<td style="text-align: center;">18</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>OLED显示屏介绍</strong></li>
+</ul>
+<p>8×8 点阵模块由 MAX7219 驱动，MAX7219 是一种集成化的串行输入/输出显示驱动器, 只需要 3个 IO 口即可驱动 1 个点阵，点阵显示时无闪烁且支持级联，8×8 点阵模块通过 Max7219 驱动，Max7219 采用的是三线串行通信，当接收 Arduino 数据时通过芯片内部 8×8 位静态 RAM 储存数据，在通过 Max7219 来控制 8×8 点阵模块的每个引脚的高低电平，从而达到显示目的。</p>
+<ul>
+<li><strong>第三方库文件</strong></li>
+</ul>
+<hr />
+<p>我们在libs文件夹中新建一个MAX7219.py。保存如下代码</p>
+<pre><code class="language-python">from machine import Pin, SPI,Timer
+import time
+from common.font import FONT
+
+# matrix = MAX7219(spi_bus=2, cs_pin=5, num_devices=3)
+class MAX7219:
+    &quot;&quot;&quot;
+    MAX7219驱动类（适用于ESP32，支持级联）
+    功能：控制8x8 LED点阵或数码管，支持亮度调节、像素操作、清屏等
+
+    参数说明：
+      - spi_bus: SPI总线编号（ESP32的HSPI=1, VSPI=2，默认VSPI=2）
+      - cs_pin: 片选引脚（默认GPIO5）
+      - num_devices: 级联的MAX7219数量（默认1个）
+    &quot;&quot;&quot;
+
+    # MAX7219寄存器地址常量
+    _REG_NOOP = 0x00
+    _REG_DIGIT0 = 0x01  # 第1行数据（数码管则为第1位）
+    _REG_DECODE = 0x09  # 解码模式
+    _REG_INTENSITY = 0x0A  # 亮度
+    _REG_SCAN_LIMIT = 0x0B  # 扫描行数
+    _REG_SHUTDOWN = 0x0C    # 关机模式
+    _REG_DISPLAY_TEST = 0x0F  # 测试模式
+
+    def __init__(self, spi_bus=2, cs_pin=5, num_devices=1):
+        &quot;&quot;&quot;
+        初始化SPI并配置MAX7219
+        &quot;&quot;&quot;
+        # 初始化SPI（ESP32的VSPI默认引脚：sck=18, mosi=23）
+        self.spi = SPI(
+            spi_bus,
+            baudrate=10_000_000,  # MAX7219支持最高10MHz时钟
+            sck=Pin(18),
+            mosi=Pin(23),
+            polarity=0,  # SPI模式0（CPOL=0, CPHA=0）
+            phase=0
+        )
+
+        # 初始化片选引脚
+        self.cs = Pin(cs_pin, Pin.OUT)
+        self.cs.value(1)  # 默认拉高（不选中）
+
+        self.num_devices = num_devices  # 级联设备数量
+
+        # 初始化MAX7219寄存器
+        self._write_all(self._REG_SHUTDOWN, 0x01)     # 退出关机模式（0x01=正常）
+        self._write_all(self._REG_DECODE, 0x00)       # 禁用BCD解码
+        self._write_all(self._REG_SCAN_LIMIT, 0x07)   # 扫描所有8行
+        self._write_all(self._REG_INTENSITY, 0x07)    # 默认亮度（0x00~0x0F）
+        self._write_all(self._REG_DISPLAY_TEST, 0x00) # 关闭测试模式
+        self.clear()  # 清空显示
+
+    def _write(self, reg, data, device=0):
+        &quot;&quot;&quot;
+        向指定设备写入数据（适用于级联场景）
+        参数：
+          - reg: 寄存器地址
+          - data: 数据字节
+          - device: 设备索引（从0开始，0=第一个模块）
+        &quot;&quot;&quot;
+        if device &gt;= self.num_devices:
+            return
+
+        # 级联时，数据按从后往前的顺序发送
+        self.cs.value(0)
+        for dev in reversed(range(self.num_devices)):
+            if dev == device:
+                self.spi.write(bytearray([reg, data]))
+            else:
+                self.spi.write(bytearray([self._REG_NOOP, 0x00]))
+        self.cs.value(1)
+
+    def _write_all(self, reg, data):
+        &quot;&quot;&quot;
+        向所有级联设备写入相同数据（用于全局配置）
+        &quot;&quot;&quot;
+        self.cs.value(0)
+        for _ in range(self.num_devices):
+            self.spi.write(bytearray([reg, data]))
+        self.cs.value(1)
+
+    def clear(self, device=None):
+        &quot;&quot;&quot;
+        清空显示（可指定单个设备或全部）
+        &quot;&quot;&quot;
+        if device is None:
+            # 清空所有设备
+            for row in range(8):
+                self._write_all(self._REG_DIGIT0 + row, 0x00)
+        else:
+            # 清空指定设备
+            for row in range(8):
+                self._write(self._REG_DIGIT0 + row, 0x00, device)
+
+    def set_pixel(self, x, y, state=1, device=0):
+        &quot;&quot;&quot;
+        设置单个像素点状态（适用于点阵）
+        参数：
+          - x: 列坐标（0~7）
+          - y: 行坐标（0~7）
+          - state: 状态（1=亮，0=灭）
+          - device: 设备索引
+        &quot;&quot;&quot;
+        if not (0 &lt;= x &lt; 8 and 0 &lt;= y &lt; 8):
+            return
+
+        # 获取当前行数据
+        current = self._get_row(y, device)
+        # 修改对应位
+        if state:
+            new_data = current | (0x80 &gt;&gt; x)  # 高位对应左侧LED
+        else:
+            new_data = current &amp; ~(0x80 &gt;&gt; x)
+        self._write(self._REG_DIGIT0 + y, new_data, device)
+
+    def _get_row(self, row, device):
+        &quot;&quot;&quot;
+        读取指定行的当前数据（虚拟实现，实际需通过SPI读取）
+        注意：MAX7219不支持直接读取显示数据，此处仅为演示逻辑
+        &quot;&quot;&quot;
+        return 0x00  # 实际应用需维护一个显示缓冲区
+
+    def set_brightness(self, brightness, device=None):
+        &quot;&quot;&quot;
+        设置亮度（0-15）
+        参数：
+          - brightness: 亮度值
+          - device: 指定设备（None=所有设备）
+        &quot;&quot;&quot;
+        val = min(15, max(0, brightness))
+        if device is None:
+            self._write_all(self._REG_INTENSITY, val)
+        else:
+            self._write(self._REG_INTENSITY, val, device)
+
+    def show_char(self, char_data, device=0):
+        &quot;&quot;&quot;
+        显示8x8字符（需传入8字节的列表或字节序列）
+        示例：CHAR_A = [0x3C, 0x7E, 0xC3, 0xC3, 0xFF, 0xC3, 0xC3, 0x00]
+        &quot;&quot;&quot;
+        for row in range(8):
+            self._write(self._REG_DIGIT0 + row, char_data[row], device)
+
+    def show_str(self,text):
+        '''
+        显示字符串（需传入字符串，注意长度不要超过点阵屏幕数）
+        '''
+        i = 0
+        for char in text:
+            self.show_char(FONT[char],device=(i))
+            i += 1           
+</code></pre>
+<hr />
+<h4 id="88_1">实验一：8×8点阵屏的显示</h4>
+<hr />
+<p><strong>代码如下：</strong></p>
+<pre><code class="language-python">from machine import Pin, SPI
+from libs.MAX7219 import MAX7219
+import time
+from common.font import FONT
+
+
+# 初始化：使用VSPI（默认引脚），CS=GPIO5，级联1个模块(就是只有2个屏)
+matrix = MAX7219(spi_bus=2, cs_pin=5, num_devices=3)
+
+'''
+1、 清屏方法 clear(device=None)
+    device (int/None): 指定清空的设备索引（None表示清空所有设备）
+    例如:清屏第二个屏幕：clear(1)
+'''
+matrix.clear()  # 清屏（所有）
+
+
+'''
+2、 设置像素点方法 set_pixel(x, y, state=1, device=0)
+    x (int): 列坐标（0~7，0=最左侧）。
+    y (int): 行坐标（0~7，0=最上方）。
+    state (int): 状态（1=亮，0=灭）。
+    device (int): 目标设备索引。(device是屏数的索引值，从0开始算第一个)
+    示例：
+    点亮第一个屏上的一个点，2秒后点亮第二个屏幕上的点，
+    2秒后熄灭第一个点，再2秒熄灭第二个点
+
+'''
+matrix.set_pixel(3, 2, state=1, device=0)
+time.sleep(2)
+matrix.set_pixel(3, 2, state=1, device=1)
+time.sleep(2)
+matrix.clear(0)
+time.sleep(2)
+matrix.clear(device=1)
+time.sleep(2)
+
+
+'''
+3、 设置亮度方法 set_brightness(brightness, device=None)
+    brightness (int): 亮度值（0~15，0=最暗，15=最亮）。
+    device (int/None): 指定设备索引（None=所有设备）
+    示例：让一个点有暗到亮
+'''
+matrix.clear()  # 清屏
+matrix.set_pixel(3, 2, state=1) # 点亮一个点
+for i in range(16):
+    matrix.set_brightness(i) # 亮度逐渐增加
+    time.sleep(1)
+matrix.clear() 
+</code></pre>
+<hr />
+<h4 id="88_2">实验二：8×8点阵屏的显示单个字符</h4>
+<hr />
+<p>使用在线生成字符的点阵数据，<a href="[LED Matrix Editor](https://xantorohara.github.io/led-matrix-editor/)">点击打开</a></p>
+<p><img alt="16-2.png" src="../../img/16-2.png" /></p>
+<p><strong>使用方法</strong></p>
+<ol>
+<li>
+<p>从左侧选择图形样式</p>
+</li>
+<li>
+<p>复制右侧的点阵数据</p>
+</li>
+<li>
+<p>整理成python文件的列表格式</p>
+</li>
+</ol>
+<p>如下：</p>
+<p><code>python
+   CHAR_A = [
+       0b00111100,  # 行0
+       0b01111110,  # 行1
+       0b11100111,  # 行2
+       0b11000011,  # 行3
+       0b11000011,  # 行4
+       0b11000011,  # 行5
+       0b11000011,  # 行6
+       0b00000000   # 行7
+   ]</code></p>
+<ol>
+<li>自定义图案方法：
+   <img alt="16-3.png" src="../../img/16-3.png" /></li>
+</ol>
+<blockquote>
+<p>按照如上方法整理成列表文件
+- <strong>显示图案</strong></p>
+</blockquote>
+<p><strong>程序如下</strong></p>
+<p>```python
+  from machine import Pin, SPI
+  from libs.MAX7219 import MAX7219
+  import time
+  from common.font import FONT</p>
+<p># 初始化：使用VSPI（默认引脚），CS=GPIO5，级联1个模块(就是只有2个屏)
+  matrix = MAX7219(spi_bus=2, cs_pin=5, num_devices=3)</p>
+<p>'''
+  1、 显示字符方法 show_char(char_data, device=0)
+      char_data (list/bytes): 字符的8字节数据（每字节对应一行，高位在左）。
+      device (int): 目标设备索引。
+  '''
+  定义字符'A'的点阵数据（8字节）
+  CHAR_A = [
+      0b00111100,  # 行0
+      0b01111110,  # 行1
+      0b11100111,  # 行2
+      0b11000011,  # 行3
+      0b11000011,  # 行4
+      0b11000011,  # 行5
+      0b11000011,  # 行6
+      0b00000000   # 行7
+  ]
+  matrix.show_char(CHAR_A, device=1) # 在第一个模块显示字符'A'
+  time.sleep(2)
+  ```</p>
+<p><strong>建立字体库文件</strong></p>
+<p>再common文件夹中新建一个<code>font.py</code>文件，用来存放字体库文件。我们也可以把自己需要的符号或者图形，按照前面说的取模方式获取二进制数组，再把数组转换成十六进制。（小技巧：把二进制文件复制到DeepSeek中，请求把二进制转换为十六进制，就可以搞定了）
+  <img alt="16-4.png" src="../../img/16-4.png" />
+  结果如下：
+  <img alt="16-5.png" src="../../img/16-5.png" /></p>
+<p>把得到的十六进制文件整理到下面的文件中，就可以使用了</p>
+<ul>
+<li><code>python
+  FONT = {
+      "A": [0x00, 0x3C, 0x66, 0x66, 0x7E, 0x66, 0x66, 0x66],
+      "B": [0x00, 0x7C, 0x66, 0x66, 0x7C, 0x66, 0x66, 0x7C],
+      "C": [0x00, 0x3C, 0x66, 0x60, 0x60, 0x60, 0x66, 0x3C],
+      "D": [0x00, 0x7C, 0x66, 0x66, 0x66, 0x66, 0x66, 0x7C],
+      "E": [0x00, 0x7E, 0x60, 0x60, 0x7C, 0x60, 0x60, 0x7E],
+      "F": [0x00, 0x7E, 0x60, 0x60, 0x7C, 0x60, 0x60, 0x60],
+      "G": [0x00, 0x3C, 0x66, 0x60, 0x60, 0x6E, 0x66, 0x3C],
+      "H": [0x00, 0x66, 0x66, 0x66, 0x7E, 0x66, 0x66, 0x66],
+      "I": [0x00, 0x3C, 0x18, 0x18, 0x18, 0x18, 0x18, 0x3C],
+      "J": [0x00, 0x1E, 0x0C, 0x0C, 0x0C, 0x6C, 0x6C, 0x38],
+      "K": [0x00, 0x66, 0x6C, 0x78, 0x70, 0x78, 0x6C, 0x66],
+      "L": [0x00, 0x60, 0x60, 0x60, 0x60, 0x60, 0x60, 0x7E],
+      "M": [0x00, 0x63, 0x77, 0x7F, 0x6B, 0x63, 0x63, 0x63],
+      "N": [0x00, 0x63, 0x73, 0x7B, 0x6F, 0x67, 0x63, 0x63],
+      "O": [0x00, 0x3C, 0x66, 0x66, 0x66, 0x66, 0x66, 0x3C],
+      "P": [0x00, 0x7C, 0x66, 0x66, 0x66, 0x7C, 0x60, 0x60],
+      "Q": [0x00, 0x3C, 0x66, 0x66, 0x66, 0x6E, 0x3C, 0x06],
+      "R": [0x00, 0x7C, 0x66, 0x66, 0x7C, 0x78, 0x6C, 0x66],
+      "S": [0x00, 0x3C, 0x66, 0x60, 0x3C, 0x06, 0x66, 0x3C],
+      "T": [0x00, 0x7E, 0x5A, 0x18, 0x18, 0x18, 0x18, 0x18],
+      "U": [0x00, 0x66, 0x66, 0x66, 0x66, 0x66, 0x66, 0x3E],
+      "V": [0x00, 0x66, 0x66, 0x66, 0x66, 0x66, 0x3C, 0x18],
+      "W": [0x00, 0x63, 0x63, 0x63, 0x6B, 0x7F, 0x77, 0x63],
+      "X": [0x00, 0x63, 0x63, 0x36, 0x1C, 0x36, 0x63, 0x63],
+      "Y": [0x00, 0x66, 0x66, 0x66, 0x3C, 0x18, 0x18, 0x18],
+      "Z": [0x00, 0x7E, 0x06, 0x0C, 0x18, 0x30, 0x60, 0x7E],
+      " ": [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+      "a": [0x00, 0x00, 0x00, 0x3C, 0x06, 0x3E, 0x66, 0x3E],
+      "b": [0x00, 0x60, 0x60, 0x60, 0x7C, 0x66, 0x66, 0x7C],
+      "c": [0x00, 0x00, 0x00, 0x3C, 0x66, 0x60, 0x66, 0x3C],
+      "d": [0x00, 0x06, 0x06, 0x06, 0x3E, 0x66, 0x66, 0x3E],
+      "e": [0x00, 0x00, 0x00, 0x3C, 0x66, 0x7E, 0x60, 0x3C],
+      "f": [0x00, 0x1C, 0x36, 0x30, 0x30, 0x7C, 0x30, 0x30],
+      "g": [0x00, 0x00, 0x3E, 0x66, 0x66, 0x3E, 0x06, 0x3C],
+      "h": [0x00, 0x60, 0x60, 0x60, 0x7C, 0x66, 0x66, 0x66],
+      "i": [0x00, 0x00, 0x18, 0x00, 0x18, 0x18, 0x18, 0x3C],
+      "j": [0x00, 0x0C, 0x00, 0x0C, 0x0C, 0x6C, 0x6C, 0x38],
+      "k": [0x00, 0x60, 0x60, 0x66, 0x6C, 0x78, 0x6C, 0x66],
+      "l": [0x00, 0x18, 0x18, 0x18, 0x18, 0x18, 0x18, 0x18],
+      "m": [0x00, 0x00, 0x00, 0x63, 0x77, 0x7F, 0x6B, 0x6B],
+      "n": [0x00, 0x00, 0x00, 0x7C, 0x7E, 0x66, 0x66, 0x66],
+      "o": [0x00, 0x00, 0x00, 0x3C, 0x66, 0x66, 0x66, 0x3C],
+      "p": [0x00, 0x00, 0x7C, 0x66, 0x66, 0x7C, 0x60, 0x60],
+      "q": [0x00, 0x00, 0x3C, 0x6C, 0x6C, 0x3C, 0x0D, 0x0F],
+      "r": [0x00, 0x00, 0x00, 0x7C, 0x66, 0x66, 0x60, 0x60],
+      "s": [0x00, 0x00, 0x00, 0x3E, 0x40, 0x3C, 0x02, 0x7C],
+      "t": [0x00, 0x00, 0x18, 0x18, 0x7E, 0x18, 0x18, 0x18],
+      "u": [0x00, 0x00, 0x00, 0x66, 0x66, 0x66, 0x66, 0x3E],
+      "v": [0x00, 0x00, 0x00, 0x00, 0x66, 0x66, 0x3C, 0x18],
+      "w": [0x00, 0x00, 0x00, 0x63, 0x6B, 0x6B, 0x6B, 0x3E],
+      "x": [0x00, 0x00, 0x00, 0x66, 0x3C, 0x18, 0x3C, 0x66],
+      "y": [0x00, 0x00, 0x00, 0x66, 0x66, 0x3E, 0x06, 0x3C],
+      "z": [0x00, 0x00, 0x00, 0x3C, 0x0C, 0x18, 0x30, 0x3C],
+      "1": [0x30, 0x70, 0x30, 0x30, 0x30, 0x30, 0xFC, 0x00],
+      "2": [0x78, 0xC6, 0x06, 0x1C, 0x30, 0xC6, 0xFC, 0x00],
+      "3": [0x78, 0xC6, 0x06, 0x1C, 0x06, 0xC6, 0x78, 0x00],
+      "4": [0x0E, 0x1E, 0x36, 0x66, 0xFE, 0x06, 0x1E, 0x00],
+      "5": [0xFC, 0xC0, 0xF8, 0x0C, 0x0C, 0xC6, 0x78, 0x00],
+      "6": [0x1C, 0x30, 0x60, 0xF8, 0xC6, 0xC6, 0x78, 0x00],
+      "7": [0xFC, 0xC6, 0x06, 0x0C, 0x18, 0x18, 0x18, 0x00],
+      "8": [0x78, 0xC6, 0xC6, 0x78, 0xC6, 0xC6, 0x78, 0x00],
+      "9": [0x78, 0xC6, 0xC6, 0x7C, 0x06, 0x0C, 0x70, 0x00],
+      "0": [0x7E, 0xC3, 0xC7, 0xCF, 0xF9, 0xF3, 0x7E, 0x00],
+      "+": [0x00, 0x30, 0x30, 0xFC, 0x30, 0x30, 0x00, 0x00],
+      "-": [0x00, 0x00, 0x00, 0xFC, 0x00, 0x00, 0x00, 0x00],
+      "*": [0x00, 0x66, 0x3C, 0xFF, 0x3C, 0x66, 0x00, 0x00],
+      "/": [0x06, 0x0C, 0x18, 0x30, 0x60, 0xC0, 0x80, 0x00],
+      "%": [0x00, 0xC6, 0xCC, 0x18, 0x30, 0x66, 0xC6, 0x00],
+      "=": [0x00, 0x00, 0xFC, 0x00, 0x00, 0xFC, 0x00, 0x00],
+      "~": [0x76, 0xDC, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+      "^": [0x10, 0x38, 0x6C, 0xC6, 0x00, 0x00, 0x00, 0x00],
+      "&lt;": [0x18, 0x30, 0x60, 0xC0, 0x60, 0x30, 0x18, 0x00],
+      "&gt;": [0x60, 0x30, 0x18, 0x0C, 0x18, 0x30, 0x60, 0x00],
+      "(": [0x18, 0x30, 0x60, 0x60, 0x60, 0x30, 0x18, 0x00],
+      ")": [0x60, 0x30, 0x18, 0x18, 0x18, 0x30, 0x60, 0x00],
+      "[": [0x78, 0x60, 0x60, 0x60, 0x60, 0x60, 0x78, 0x00],
+      "]": [0x78, 0x18, 0x18, 0x18, 0x18, 0x18, 0x78, 0x00],
+      "{": [0x0E, 0x30, 0x30, 0xE0, 0x30, 0x30, 0x0E, 0x00],
+      "}": [0xE0, 0x30, 0x30, 0x0E, 0x30, 0x30, 0xE0, 0x00],
+      "。": [0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x00],
+      ":": [0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x00],
+      ";": [0x00, 0x30, 0x30, 0x00, 0x00, 0x30, 0x30, 0x60],
+      ",": [0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x60],
+      "!": [0x18, 0x3C, 0x3C, 0x18, 0x18, 0x00, 0x18, 0x00],
+      "?": [0x78, 0xCC, 0x18, 0x30, 0x60, 0x00, 0x60, 0x00],
+      "@": [0x7E, 0xC3, 0xCF, 0xCF, 0xCF, 0xC0, 0x78, 0x00],
+      "&amp;": [0x1C, 0x36, 0x1C, 0x3E, 0x6C, 0x66, 0x3E, 0x00],
+      "$": [0x30, 0x7E, 0xC0, 0x78, 0x0C, 0x7E, 0x30, 0x00],
+      "#": [0x6C, 0x6C, 0xFE, 0x6C, 0xFE, 0x6C, 0x6C, 0x00],
+      "\\": [0xC0, 0x60, 0x30, 0x18, 0x0C, 0x06, 0x02, 0x00],
+      "‘": [0x30, 0x30, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00],
+      "’": [0x60, 0x60, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00]
+  }</code></li>
+</ul>
+<hr />
+<h4 id="_2">实验三：点阵屏显示多个字符</h4>
+<ul>
+<li>示例：</li>
+</ul>
+<p>```python
+  from machine import Pin, SPI
+  from libs.MAX7219 import MAX7219
+  import time
+  # 导入刚才建立的字体库
+  from common.font import FONT</p>
+<p># 初始化：使用VSPI（默认引脚），CS=GPIO5，级联1个模块(就是只有3个屏)
+  matrix = MAX7219(spi_bus=2, cs_pin=5, num_devices=3)</p>
+<p>'''
+  1、 级联显示多个字符
+      第一个屏显示“A”
+      第二个屏显示‘B’
+  '''
+  matrix = MAX7219(spi_bus=2, cs_pin=5, num_devices=3)
+  matrix.show_char(FONT['A'], device=0)  # 第一个模块显示A
+  matrix.show_char(FONT['B'], device=1)  # 第一个模块显示B
+  matrix.show_char(FONT['C'], device=2)  # 第一个模块显示C
+  time.sleep(2)
+  matrix.clear()
+  ```</p>
+<p>'''
+  2、 show_str(text) text传入字符串，字符串长度不得超过点阵屏数，超出部分不显示
+      级联显示字符串
+      第一个屏显示“A”
+      第二个屏显示‘C’
+      第二个屏显示‘d’
+  '''
+  matrix.show_str('ACd')
+  time.sleep(2)
+  matrix.clear()</p>
+<p>```</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/" class="btn btn-neutral float-left" title="17.OLED显示屏"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/" class="btn btn-neutral float-right" title="19.ADC数模转换器">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>53.语音模块 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "53.\u8bed\u97f3\u6a21\u5757";
+        var mkdocs_page_input_path = "MicroPython\\\u8bed\u97f3\u6a21\u5757.md";
+        var mkdocs_page_url = "/MicroPython/%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">53.语音模块</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_2">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led">实验一：语音控制LED灯的亮灭</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">实验二：语音语音播报实时时间是温度</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">53.语音模块</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="_1"><strong>语音识别模块</strong></h3>
+<hr />
+<h4 id="_2">准备工作</h4>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">语音模块</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">数字温度传感器</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">PH2.0数据线</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="54-1.jpg" src="../../img/54-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">数字温度传感器</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">语音模块 - SDA</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">语音模块 - SCL</td>
+<td style="text-align: center;">22</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>SU-03T语音识别控制模块介绍</strong></li>
+</ul>
+<p>SU-03T语音识别控制模块为用户提供便捷便宜的串口离线语音识别方案，可广泛且快速应用于智能家居，各类智能小家电，86盒，玩具，灯具等需要语音操控的产品。 语音识别采用了离线语音识别芯片。通过串口通信的方式实现与主机的交互，最多支持150条语音指令，可在用户平台上自主定制语音指令和固件，命令词可任意修改，开发简单，不需要写代码。自带固件下载芯片，只需数据线即可完成固件下载。支持语音调节音量、学习唤醒词，识别灵敏且准确率高。</p>
+<ul>
+<li>
+<p><strong>烧录语言模块固件</strong></p>
+</li>
+<li>
+<p>串口烧录工具下载<a href="https://help.aimachip.com/attach_files/offline_su03t/987">点击下载</a></p>
+</li>
+<li>
+<p>制作固件（也可以直接下载我们制作好的固件：<a href="https://pan.baidu.com/s/1INCI-2t-ohACCJZGr9rpZA?pwd=kb12">点击下载</a>  提取码: kb12）</p>
+<p>第一步：打开网址：智能公元[<a href="https://www.smartpi.cn/#/">智能公元</a>)，点击注册</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-1.png" /></p>
+<p>第二步：选择SU-03T产品，点击：立即创建</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-2.png" /></p>
+<p>第三步：输入相关内容，然后点击"下一步"</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-3.png" /></p>
+<p>第四步：设备唤醒设置</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-4.png" /></p>
+<p>第五步：引脚配置（第7、8务必按照如图设置）</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-5.png" /></p>
+<p>第六步：进行设置“基础信息”</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-6.png" /></p>
+<blockquote>
+<ul>
+<li>
+<p>行为：给自己要做的事情起名（英文）</p>
+</li>
+<li>
+<p>触发方式：命令词，就是通过说话来发出请求</p>
+</li>
+<li>
+<p>命令词：就是说话能被识别的内容，同一个命令可以有多个命令词用“|”隔开</p>
+</li>
+<li>
+<p>回复语：是模块对你命令的回复语音（注意不需要语音回复的，就不用填写，如果询问温度，没有固定的答复语，这个地方就不用写）</p>
+</li>
+</ul>
+<p>完成设置之后，点击最</p>
+</blockquote>
+<p>第七步：指令词是通过语音设别的方式，还可以从单片机的串口来获取数据，下面演示获取温度的设置方法，设置如下：</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-9.png" /></p>
+<ul>
+<li>设置“控制详情”</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-7.png" /></p>
+<ul>
+<li>把数据发给单片机，设置如下：</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-8.png" /></p>
+<ul>
+<li>从单片机获取数据，首先：添加触发 的 设置如下“</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-10.png" /></p>
+<ul>
+<li>从单片机获取数据，其次：设置变量来接受从单片机传递来的数据</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-11.png" /></p>
+<ul>
+<li>从单片机获取数据，再次进行，触发设置</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-12.png" /></p>
+<ul>
+<li>进入变量赋值的设计</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-13.png" /></p>
+<ul>
+<li>设置之后，串口输入触发项显示如下：</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-14.png" /></p>
+<ul>
+<li>最后，需要将变量用语音的方式播报出来，需要使用命令词添加触发控制</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\5-15.png" /></p>
+<ul>
+<li>进行如下设置：</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-16.png" /></p>
+<p>第八步：设置从串口获取实时时间，设置如下;</p>
+<ul>
+<li>设置时间参数用来临时存放从单片机获取时间数据</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-2.png" /></p>
+<ul>
+<li>设置时间变量用来接受时间数据，把临时参数赋值给变量</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-1.png" /></p>
+<p>第九步：设置完成</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-18.png" /></p>
+<p>第十步：耐心等待系统编译（要很久哦）</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-19.png" /></p>
+<p>第十一步：成功周之后就可以下载烧录固件了</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\52-20.png" /></p>
+<p>第十二步：下载固件并解压到电脑中</p>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-3.png" /></p>
+<p>第十三步：烧录过程</p>
+<ul>
+<li>
+<p>下载串口烧录软件<a href="https://pan.baidu.com/s/1feXsFgMcYPKD03SdL9RBGA?pwd=m3c3">点击下载</a>  提取码: m3c3</p>
+</li>
+<li>
+<p>解压后打开烧录软件</p>
+</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-4.png" /></p>
+<ul>
+<li>使用ubs数据线把语音模块和电脑连接，选择到之前解压的烧录固件</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-5.png" /></p>
+<ul>
+<li>点击烧录按钮</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-6.png" /></p>
+<ul>
+<li>出现黄色背景条，去按下模块上的蓝色按钮。查看是否出现进去，没有出现，可以再按一次</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-7.png" /></p>
+<ul>
+<li>当进度完成后，烧录完成</li>
+</ul>
+<p><img alt="" src="C:\Users\Administrator\Documents\GitHub\leanESP32\my-project\docs\img\53-8.png" /></p>
+</li>
+</ul>
+<hr />
+<h4 id="led">实验一：语音控制LED灯的亮灭</h4>
+<hr />
+<p><strong>代码如下：</strong></p>
+<pre><code class="language-python">import machine
+import time
+
+uart1=machine.UART(1, tx=17, rx=16, baudrate=9600)
+pin2 = machine.Pin(2, machine.Pin.OUT)
+
+while True:
+    if uart1.any():
+        data = uart1.read()
+        print(data)
+        if data == b'\x01':  # 这是语音模块传回来的数据值01
+            pin2.value(1)
+            time.sleep_ms(100)
+        elif data == b'\x02':  # 这是语音模块传回来的数据值02
+            pin2.value(0)
+            time.sleep_ms(100)
+</code></pre>
+<hr />
+<h4 id="_3">实验二：语音语音播报实时时间是温度</h4>
+<hr />
+<p><strong>代码如下</strong></p>
+<pre><code class="language-python">'''
+实时播报时间和温度
+唤醒词：你好小美
+询问时间：现在的时间是
+询问温度：现在的是温度是
+'''
+from machine import UART, RTC,Pin
+import time
+import onewire
+import ds18x20
+
+# ===========初始化语音模块=UART1========
+uart = UART(1, baudrate=9600, tx=17, rx=16)
+
+# ======== DS18B20温度传感器配置 ========
+ow = onewire.OneWire(Pin(4, Pin.IN, Pin.PULL_UP))  # 构建单总线对象
+ds = ds18x20.DS18X20(ow)    # 构建DS18B20对象
+roms = ds.scan()  # 扫描设备
+
+# ========获取当前的温度值===============
+def get_temp_hex():
+    ds.convert_temp()  # 启动温度转换
+    time.sleep_ms(750)  # 等待温度转换完成
+    temp = int(ds.read_temp(roms[0])*100)  # 读取温度值
+    temp_zs = temp // 100  # 温度的整数位
+    temp_xs = (temp % 100)//10
+    temp_xg = (temp % 100)%10
+    return [temp_zs,temp_xs,temp_xg]
+
+# ======获取当前时间值=============
+def get_time_hex():
+    # 初始化RTC
+    rtc = RTC()
+    # 获取当前时间 (年,月,日,星期,时,分,秒,微秒)
+    now = rtc.datetime()
+    # 转换为十六进制数组 [时,分,秒]
+    return [now[4], now[5], now[6]]  # 时,分,秒
+
+
+while True :
+    # =======温度数据======
+    temp_data = get_temp_hex()
+    print(f'当前的温度数据为{temp_data}')
+
+    # =======时间数据======
+    time_data = get_time_hex()
+    print(f'当前的时间数据为{time_data}')
+
+    # =====发送时间十六进制信号======
+    hex_time_data = [0xAA,0x55] + [0x02] + time_data + [0x55,0xAA]  # 添加帧头帧尾 (示例: 0xAA开头, 0x55结尾)
+    byte_time_data = bytearray(hex_time_data)
+    uart.write(byte_time_data)
+
+    # =====发送温度十六进制信号======
+    hex_temp_data = [0xAA,0x55] + [0x01] + temp_data + [0x55,0xAA] # 添加帧头帧尾 (示例: 0xAA开头, 0x55结尾)
+    byte_temp_data = bytearray(hex_temp_data)
+    uart.write(byte_temp_data)
+
+    time.sleep(6)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/" class="btn btn-neutral float-left" title="52.SD读卡器模块"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

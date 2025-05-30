@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/RGB%20LED%E7%81%AF%E6%9D%A1/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>7.RGB LED灯条 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "7.RGB LED\u706f\u6761";
+        var mkdocs_page_input_path = "MicroPython\\RGB LED\u706f\u6761.md";
+        var mkdocs_page_url = "/MicroPython/RGB%20LED%E7%81%AF%E6%9D%A1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">7.RGB LED灯条</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#micropython-neopixel">MicroPython NeoPixel 类详解</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">动手实验</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#4">实验一：点亮4个灯然后熄灭</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">实验二：给灯珠随机分配颜色</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">实验三：使用第三方库实现炫酷效果</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">7.RGB LED灯条</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="rgb-led">RGB LED灯条</h1>
+<hr />
+<h2 id="_1">准备工作</h2>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">RGB LED灯</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">PH2.0双头线</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="6-1.jpg" src="../../img/6-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">RGB - LED灯条</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>实物接线</strong></li>
+</ul>
+<hr />
+<p><img alt="6-2.jpeg" src="../../img/6-2.jpeg" /></p>
+<hr />
+<h2 id="micropython-neopixel">MicroPython NeoPixel 类详解</h2>
+<hr />
+<ul>
+<li><strong>参数说明：</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pin</code></td>
+<td>Pin对象</td>
+<td>数据引脚</td>
+<td>必填</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>int</td>
+<td>LED数量</td>
+<td>必填</td>
+</tr>
+<tr>
+<td><code>bpp</code></td>
+<td>int</td>
+<td>每像素字节数(3=RGB,4=RGBW)</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>timing</code></td>
+<td>int</td>
+<td>时序模式(0=软件,1=硬件RMT)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>示例</strong></li>
+</ul>
+<hr />
+<pre><code class="language-python"># 导入库文件
+from machine import Pin
+from neopixel import NeoPixel
+
+# 控制10个LED，GPIO2引脚
+np = NeoPixel(Pin(2), 10)  
+</code></pre>
+<ul>
+<li><strong>操作方法：</strong></li>
+</ul>
+<hr />
+<ol>
+<li><strong>索引访问</strong> (通过索引读写单个LED颜色)</li>
+</ol>
+<pre><code class="language-python"># 设置第1个LED为红色
+np[0] = (255, 0, 0)  
+
+# 获取第2个LED颜色
+color = np[1]  # 返回(R,G,B)元组
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>
+<p>修改后需调用<code>write()</code>生效</p>
+</li>
+<li>
+<p>索引从0开始，不能越界</p>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><strong><code>fill(color)</code>   批量设置所有LED颜色）</strong></li>
+</ol>
+<pre><code># 全部设为蓝色
+np.fill((0, 0, 255))  
+</code></pre>
+<blockquote>
+<p><strong>参数</strong>：</p>
+<ul>
+<li><code>color</code>: (R,G,B)或(R,G,B,W)元组</li>
+</ul>
+</blockquote>
+<ol>
+<li><strong><code>write()</code></strong> 将颜色数据发送到LED灯带</li>
+</ol>
+<pre><code class="language-python">np[0] = (255, 0, 0)
+np.write()  # 实际更新LED
+</code></pre>
+<hr />
+<h2 id="_2">动手实验</h2>
+<hr />
+<h3 id="4">实验一：点亮4个灯然后熄灭</h3>
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">from machine import Pin,PWM
+from neopixel import NeoPixel
+import time
+
+np = NeoPixel(Pin(2), 10)  # 控制10个LED，GPIO2
+
+# 第一个灯显示红色
+np[0] = [255,0,0]
+np.write()
+
+# 第二个灯显示绿色
+np[1] = [0,255,0]
+np.write()
+
+# 第二个灯显示蓝色
+np[2] = [0,0,255]
+np.write()
+
+# 第二个灯显示白色
+np[3] = [255,255,255]
+np.write()
+
+# 停留2秒后，全部熄灭
+time.sleep(2)
+np.fill((0,0,0))
+np.write()55,255]
+np.write()
+</code></pre>
+<hr />
+<h3 id="_3">实验二：给灯珠随机分配颜色</h3>
+<hr />
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">from machine import Pin,PWM
+from neopixel import NeoPixel
+import random
+
+
+np = NeoPixel(Pin(2), 10)  # 控制10个LED，GPIO2
+# 产生10个RGB列表值
+list =[]
+for i in range(10):
+    list1 = []
+    for j in range(3):
+        list1.append(random.randint(0,255))
+    list.append(list1)
+
+for i in range(10):
+    np[i] = list[i]
+    np.write()
+</code></pre>
+<hr />
+<h3 id="_4">实验三：使用第三方库实现炫酷效果</h3>
+<hr />
+<ul>
+<li><strong>WS2812B LED 简介</strong></li>
+</ul>
+<p>WS2812B 是一款智能控制 LED 光源，将控制电路和 RGB 芯片集成在 5050 封装中，形成完整像素点。</p>
+<ul>
+<li><strong>WS122812B库文件</strong></li>
+</ul>
+<p>MicroPython的开发中，我们会使用大量的库文件，可以直接拿来使用，大大提高了开发效率，降低了开发的难度。在项目文件夹中新建一个文件夹common（名字自己取，要求是英文）用来放置网上找来的库文件，然后在文件夹中，新建一个Python文件，我们示例为：WS2812B</p>
+<pre><code class="language-python">import time
+from machine import Pin
+from neopixel import NeoPixel
+
+# 流星雨动画效果
+class WS2812B_1:
+    '''
+    流星雨流水灯效果
+    :param pin: 灯条引脚
+    :param num: 灯条中LED灯数量
+    :param length: 流动亮条的长度，也就是同时发光的LED灯数量
+    :param lolor: 灯光颜色，元组格式，元素数量为3，例如：color=(255, 0, 0)
+    :param speed: 灯光流动的速度，单位：毫秒
+    '''
+    def __init__(self, pin, num,color=(255, 0, 0),length=5, speed=50):
+        self.num = num
+        self.pin = pin
+        self.color = color
+        self.length = length
+        self.speed = speed
+        self.np = NeoPixel(Pin(self.pin), self.num)
+
+    def meteor_effect(self):
+        for i in range(len(self.np) + self.length):
+            for j in range(len(self.np)):
+                # 计算亮度衰减
+                brightness = max(0, 255 - (abs(i - j) * (255 // self.length)))
+                self.np[j] = tuple(int(c * brightness / 255) for c in self.color)
+            self.np.write()
+            time.sleep_ms(self.speed)
+            self.np.fill((0, 0, 0))
+
+
+
+class WS2812B_2:
+    '''
+    全灯珠彩虹渐变
+    :param pin: 灯条引脚
+    :param num: 灯条中LED灯数量
+    :param waith: 渐变的间隔时间
+    '''
+    def __init__(self, pin, num,waith=5):
+        self.num = num
+        self.pin = pin
+        self.np = NeoPixel(Pin(self.pin), self.num)
+        self.waith = waith
+    def rainbow_cycle(self,wait=20):
+        for j in range(256):  # 色相循环
+            for i in range(len(self.np)):
+                hue = (i * 256 // len(self.np)) + j
+                self.np[i] = self.hsv_to_rgb(hue % 256, 255, 50)
+            self.np.write()
+            time.sleep_ms(self.waith)
+
+    # HSV转RGB函数（简化版）
+    def hsv_to_rgb(self,h, s=255, v=50):
+        h = h % 256
+        if s == 0:
+            return (v, v, v)
+        region = h // 43
+        remainder = (h % 43) * 6
+        p = (v * (255 - s)) &gt;&gt; 8
+        q = (v * (255 - ((s * remainder) &gt;&gt; 8))) &gt;&gt; 8
+        t = (v * (255 - ((s * (255 - remainder)) &gt;&gt; 8))) &gt;&gt; 8
+        if region == 0:
+            return (v, t, p)
+        elif region == 1:
+            return (q, v, p)
+        elif region == 2:
+            return (p, v, t)
+        elif region == 3:
+            return (p, q, v)
+        elif region == 4:
+            return (t, p, v)
+        else:
+            return (v, p, q)
+
+
+if __name__ == &quot;__main__&quot;:
+    while True :
+        led = WS2812B_1(pin =2,num=10, color = (0,255,255), length = 3, speed = 100)
+        led.meteor_effect()
+
+        led = WS2812B_2(pin =2,num=10,waith=5)
+        led.rainbow_cycle()
+</code></pre>
+<ul>
+<li><strong>导入库直接使用即可得到想要的效果</strong></li>
+</ul>
+<pre><code class="language-python"># 导入刚才的库文件
+from common.WS2812B import WS2812B_1,WS2812B_2
+
+while True :
+    # 彩虹灯渐变效果
+    led = WS2812B_1(pin =2,num=10, color = (0,255,255), length = 3, speed = 100)
+    led.meteor_effect()
+
+    # 流星雨灯光效果
+    led = WS2812B_2(pin =2,num=10,waith=5)
+    led.rainbow_cycle()
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../RGB%20LED%E7%81%AF/" class="btn btn-neutral float-left" title="6.RGB LED灯"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/" class="btn btn-neutral float-right" title="8.直流电机">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../RGB%20LED%E7%81%AF/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

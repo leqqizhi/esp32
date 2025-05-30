@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>11.按键模块 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "11.\u6309\u952e\u6a21\u5757";
+        var mkdocs_page_input_path = "MicroPython\\\u6309\u952e\u6a21\u5757.md";
+        var mkdocs_page_url = "/MicroPython/%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">11.按键模块</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_2">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led">实验一：按键控制LED灯的亮灭</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led_1">实验二：每按一次按键LED灯状态改变一次</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led_2">实验三：通过外部中断实现按键控制LED灯</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led_3">实验三，松开按钮是改变LED灯状态</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led_4">实验四：按下按钮时改变LED灯的状态</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led_5">实验五：两个按键控制LED灯</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-">---</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4p4led">实验六：4P按键控制4盏LED灯</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">11.按键模块</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">按键模块</h1>
+<hr />
+<h2 id="_2">准备工作</h2>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">180°舵机</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="10-1.jpg" src="../../img/10-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">按键</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>按键模块介绍</strong></p>
+<hr />
+<p>按键模块是电子系统中用于实现人机交互的基础输入组件，用于检测用户按压动作并将机械信号转换为电信号。</p>
+<h2 id="led">实验一：按键控制LED灯的亮灭</h2>
+<ul>
+<li><strong>代码如下：</strong></li>
+</ul>
+<pre><code class="language-python">'''
+按键按下灯亮，松开灯灭
+按键模块GPIO 2号引脚
+LED模块 GPIO 4号引脚
+'''
+
+from machine import Pin
+import time
+
+led = Pin(4, Pin.OUT)   # LED灯接 GPIO 4
+button = Pin(2, Pin.IN)   # 按键接 GPIO 2
+
+
+while True:
+    # 测试按键的返回值
+    print(button.value())  
+    time.sleep(0.1)   # 默认状态为：1 按下值为：0
+
+    if not button.value(): # 按键发下时
+        time.sleep_ms(10)  # 按键防抖
+        led.value(1)   # 按键按下后，灯亮
+
+    else :
+        led.value(0) # 按键松开后，灯灭
+</code></pre>
+<h2 id="led_1">实验二：每按一次按键LED灯状态改变一次</h2>
+<ul>
+<li><strong>代码如下：</strong></li>
+</ul>
+<pre><code class="language-python">'''
+按键控制LED灯，每按一次LED灯改变
+次按键模块GPIO 2号引脚
+LED模块 GPIO 4号引脚IO4
+'''
+
+from machine import Pin
+import time
+
+led = Pin(4, Pin.OUT)   # LED灯接 GPIO 4
+button = Pin(2, Pin.IN)   # 按键接 GPIO 2
+
+num = True # 控制灯亮灭的逻辑
+while True :
+    if not button.value(): # 按键发下时
+        time.sleep_ms(10)  # 按键防抖
+        while button.value() == 0:   # 按键按下未释放
+            pass
+        num = not num # 检测到按键动作后，灯亮模式发生改变
+        if num:
+            led.value(1)   # 按键按下后，灯亮
+
+        else :
+            led.value(0) # 按键松开后，灯灭
+</code></pre>
+<h2 id="led_2">实验三：通过外部中断实现按键控制LED灯</h2>
+<ul>
+<li><strong>什么是中断</strong></li>
+</ul>
+<p>当单片机正在执行某个程序时，如果突然出现意外情况需要停止当前的工作去执行其他指定的程序（中断程序或中断函数），执行完成后，再回来继续执行原来的程序，这就叫中断。</p>
+<ul>
+<li><strong>中断函数</strong></li>
+</ul>
+<p>ESP32使用了Pin类中<code>Pin.irq()</code>函数来实现外部中断程序：</p>
+<p><strong><code>pin.irq(handler=None, trigger=(Pin.IRQ_FALLING | Pin.IRQ_RISING))</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>说明</th>
+<th>可选值/示例</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>handler</code></td>
+<td>中断处理函数</td>
+<td><code>def isr(pin): ...</code></td>
+<td>应保持简短，避免阻塞操作</td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td>触发条件</td>
+<td><code>Pin.IRQ_FALLING</code>（下降沿）<br><code>Pin.IRQ_RISING</code>（上升沿）<br>组合使用 <code>\|</code> 运算符</td>
+<td>电平触发模式（LOW/HIGH）可能导致持续中断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>触发类型对照表</strong></p>
+<table>
+<thead>
+<tr>
+<th>触发类型常量</th>
+<th style="text-align: left;">触发条件描述</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pin.IRQ_FALLING</code></td>
+<td style="text-align: left;">下降沿触发（高电平→低电平）</td>
+<td>常规按键检测</td>
+</tr>
+<tr>
+<td><code>Pin.IRQ_RISING</code></td>
+<td style="text-align: left;">上升沿触发（低电平→高电平）</td>
+<td>释放检测</td>
+</tr>
+<tr>
+<td><code>Pin.IRQ_LOW_LEVEL</code></td>
+<td style="text-align: left;">低电平持续触发</td>
+<td>长按检测</td>
+</tr>
+<tr>
+<td><code>Pin.IRQ_HIGH_LEVEL</code></td>
+<td style="text-align: left;">高电平持续触发</td>
+<td>特殊传感器信号</td>
+</tr>
+<tr>
+<td><code>IRQ_FALLING丨IRQ_RISING</code></td>
+<td style="text-align: left;">双边沿触发</td>
+<td>需要同时检测按下/释放的场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>如何判断是上拉还是下拉</strong></p>
+<ul>
+<li>
+<p><code>Pin.PULL_UP</code><strong>选择上拉：当需要引脚悬空时保持‌</strong>高电平（如按键未按下状态）</p>
+</li>
+<li>
+<p><code>Pin.PULL_DOWN</code><strong>选择下拉：当需要引脚悬空时保持‌</strong>低电平（如传感器未触发状态）</p>
+</li>
+</ul>
+<p>我们通过一下程序查看按键的电位变化来判断:</p>
+<pre><code class="language-python">from machine import Pin
+import time
+
+button = Pin(2, Pin.IN) # 开关链接2号引脚
+while True :
+    print(button.value())
+    time.sleep(0.5)
+</code></pre>
+<p>运行结果：</p>
+<p><img alt="10-2.png" src="../../img/10-2.png" /></p>
+<p>由此可以判断此按键按下时为上拉，松开为下拉：</p>
+<h2 id="led_3">实验三，松开按钮是改变LED灯状态</h2>
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">'''
+松开按钮是触发中断程序
+'''
+
+import time
+from machine import Pin
+
+# 我的按钮默认是高电频，所以使用Pin.PULL_UP
+button = Pin(2, Pin.IN, Pin.PULL_UP) 
+
+led = Pin(4, Pin.OUT)
+led.value(0) # 默认我灯灭状态
+
+
+#定义 button 的外部中断函数
+def button_irq(button):
+    time.sleep_ms(80)
+    if button.value() == 1: # 注意此时松开时候值为1
+        led.value(not led.value())
+
+# 松开按键是让电频从低至高，所以是上升沿
+button.irq(button_irq, Pin.IRQ_RISING)  
+</code></pre>
+<h2 id="led_4">实验四：按下按钮时改变LED灯的状态</h2>
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">'''
+按下按钮时改变LED灯状态
+'''
+import time
+from machine import Pin
+
+# 我的按钮默认是高电频，所以使用Pin.PULL_UP
+buton = Pin(2, Pin.IN, Pin.PULL_UP) 
+led = Pin(12, Pin.OUT)
+
+led.value(0)
+
+
+def button_irq(button):
+    time.sleep_ms(80)
+    if button.value() == 0: # 注意按下时候值为0
+        led.value(not led.value())
+
+button.irq(button_irq, Pin # a下按钮是让电频从高至低，所以是下降沿.IRQ_FALLING)  # 按
+</code></pre>
+<blockquote>
+<p><strong><mark>注</mark><mark>意</mark></strong></p>
+<p>ESP32不支持同时中断嵌套，多个中断在一个程序中，一定要注意执行逻辑，ESP32不支持中断优先！</p>
+</blockquote>
+<hr />
+<h2 id="led_5">实验五：两个按键控制LED灯</h2>
+<hr />
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">按键</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<p><img alt="10-3.jpg" src="../../img/10-3.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">按键1</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">按键2</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">LED灯1</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">LED灯1</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">LED灯1</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>代码如下：</strong></li>
+</ul>
+<pre><code class="language-python">'''
+两个按键控制LED灯效果
+'''
+from machine import Pin
+import time
+
+k1 = Pin(2, Pin.IN, Pin.PULL_UP)
+k2 = Pin(4, Pin.IN, Pin.PULL_UP)
+
+led1 = Pin(12, Pin.OUT)
+led2 = Pin(13, Pin.OUT)
+led3 = Pin(14, Pin.OUT)
+
+led1_state, led2_state, led3_state = 0, 0, 0
+
+def k1_irq(K1):
+    global led1_state
+    time.sleep_ms(10)
+    if k1.value() == 0:
+        led1_state = not led1_state
+        led1.value(led1_state)
+
+def k2_irq(K2):
+    global led2_state
+    time.sleep_ms(10)
+    if k2.value() == 0:
+        led2_state = not led2_state
+        led2.value(led2_state)
+
+if __name__ == &quot;__main__&quot;:
+    led1.value(0)
+    led2.value(0)
+    k1.irq(k1_irq, Pin.IRQ_FALLING)
+    k2.irq(k2_irq, Pin.IRQ_FALLING)
+
+    while True :
+        led3.value(0)
+        time.sleep(0.5)
+        led3.value(1)
+        time.sleep(0.5)
+</code></pre>
+<h2 id="-">---</h2>
+<h2 id="4p4led">实验六：4P按键控制4盏LED灯</h2>
+<hr />
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4P按键</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<p><img alt="10-4.jpg" src="../../img/10-4.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4P按键</td>
+<td style="text-align: center;">34</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4P按键</td>
+<td style="text-align: center;">35</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4P按键</td>
+<td style="text-align: center;">36</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4P按键</td>
+<td style="text-align: center;">39</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">LED灯</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li>
+<p><strong>程序如下：</strong></p>
+</li>
+<li>
+<p><strong>第一种方式：</strong></p>
+</li>
+</ul>
+<pre><code class="language-python">'''
+4P按键分别控制4盏led灯
+'''
+from machine import Pin
+import time
+
+# 初始化按键（输入模式，无内部上拉，需外接上拉电阻）
+buttons = [
+    Pin(34, Pin.IN),  # 按键1 -&gt; GPIO34
+    Pin(35, Pin.IN),  # 按键2 -&gt; GPIO35
+    Pin(36, Pin.IN),  # 按键3 -&gt; GPIO36
+    Pin(39, Pin.IN)   # 按键4 -&gt; GPIO39
+]
+
+# 初始化LED（输出模式，默认高电平熄灭）
+leds = [
+    Pin(2, Pin.OUT),   # LED1 -&gt; GPIO2
+    Pin(4, Pin.OUT),   # LED2 -&gt; GPIO4
+    Pin(12, Pin.OUT),  # LED3 -&gt; GPIO12
+    Pin(13, Pin.OUT)   # LED4 -&gt; GPIO13
+]
+
+# 关闭所有LED（可选）
+for led in leds:
+    led.value(0)
+
+# 主循环：检测按键并控制LED
+while True:
+    for i in range(4):
+        # 按键按下时值为0
+        if buttons[i].value() == 0:
+            # 消抖处理：检测到按下后延时再确认
+            time.sleep_ms(20)
+            if buttons[i].value() == 0:
+                leds[i].value(1)  # 点亮LED（高电平有效）
+        else:
+            leds[i].value(0)      # 熄灭LED
+    time.sleep_ms(50)  # 主循环延时，降低CPU占用
+</code></pre>
+<ul>
+<li><strong>第二种方式：</strong></li>
+</ul>
+<pre><code class="language-python">'''
+4P按键分别控制4盏led灯（按一次亮，再按一次灭）
+'''
+from machine import Pin
+import time
+
+# 初始化按键（输入模式，无内部上拉，需外接上拉电阻）
+buttons = [
+    Pin(34, Pin.IN),  # 按键1 -&gt; GPIO34
+    Pin(35, Pin.IN),  # 按键2 -&gt; GPIO35
+    Pin(36, Pin.IN),  # 按键3 -&gt; GPIO36
+    Pin(39, Pin.IN)   # 按键4 -&gt; GPIO39
+]
+
+# 初始化LED（输出模式，默认高电平熄灭）
+leds = [
+    Pin(2, Pin.OUT),   # LED1 -&gt; GPIO2
+    Pin(4, Pin.OUT),   # LED2 -&gt; GPIO4
+    Pin(12, Pin.OUT),  # LED3 -&gt; GPIO12
+    Pin(13, Pin.OUT)   # LED4 -&gt; GPIO13
+]
+
+# 关闭所有LED（可选）
+for led in leds:
+    led.value(0)
+
+# 保存LED状态
+led_states = [False] * 4
+
+while True:
+    for i in range(4):
+        if buttons[i].value() == 0:
+            time.sleep_ms(20)
+            if buttons[i].value() == 0:
+                led_states[i] = not led_states[i]  # 翻转状态
+
+                if led_states[i] == True :
+                    leds[i].value(1)
+                else :
+                    leds[i].value(0)
+
+#                 leds[i].value(0 if led_states[i] else 1) #  上面的判断语句可简化为这一行
+
+                while buttons[i].value() == 0:  # 等待按键释放
+                    time.sleep_ms(10)
+    time.sleep_ms(50)
+</code></pre>
+<ul>
+<li><strong>第三种方式：</strong> </li>
+</ul>
+<pre><code class="language-python">'''
+4P按键分别控制4盏led灯，使用按键中断的方式实现（按一次亮，再按一次灭）
+'''
+from machine import Pin
+import time
+
+# 初始化按键（输入模式，无内部上拉，需外接上拉电阻）
+buttons = [
+    Pin(34, Pin.IN),  # 按键1 -&gt; GPIO34
+    Pin(35, Pin.IN),  # 按键2 -&gt; GPIO35
+    Pin(36, Pin.IN),  # 按键3 -&gt; GPIO36
+    Pin(39, Pin.IN)   # 按键4 -&gt; GPIO39
+]
+
+# 初始化LED（输出模式，默认高电平熄灭）
+leds = [
+    Pin(2, Pin.OUT),   # LED1 -&gt; GPIO2
+    Pin(4, Pin.OUT),   # LED2 -&gt; GPIO4
+    Pin(12, Pin.OUT),  # LED3 -&gt; GPIO12
+    Pin(13, Pin.OUT)   # LED4 -&gt; GPIO13
+]
+
+# 关闭所有LED（可选）
+for led in l# 定义中断回调函数
+def toggle_led(pin):
+    for i in range(4):
+        if pin == buttons[i]:
+            leds[i].value(not leds[i].value())
+
+# 配置中断（检测下降沿）
+for button in buttons:
+    button.irq(trigger=Pin.IRQ_FALLING, handler=toggle_led)     time.sleep_ms(10)
+    time.sleep_ms(50)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/" class="btn btn-neutral float-left" title="10.步进电机"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" class="btn btn-neutral float-right" title="12.定时器中断">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

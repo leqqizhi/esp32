@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>17.OLED显示屏 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "17.OLED\u663e\u793a\u5c4f";
+        var mkdocs_page_input_path = "MicroPython\\OLED\u663e\u793a\u5c4f.md";
+        var mkdocs_page_url = "/MicroPython/OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">17.OLED显示屏</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oled_1">实验一：OLED液晶屏的显示</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oled_2">实验二：OLED显示中文</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">17.OLED显示屏</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="oled">OLED液晶显示屏</h3>
+<hr />
+<h4 id="_1">准备工作</h4>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">OLED液晶显示屏</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="15-2.jpg" src="../../img/15-2.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">OLED液晶显示屏-SCL</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">OLED液晶显示屏-SDA</td>
+<td style="text-align: center;">21</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>OLED显示屏介绍</strong></li>
+</ul>
+<p>OLED也叫有机发光二极管，又称为有机电激光显示，OLED具有自发光（不需要背光），对比度高、轻薄、可视角大、反应速度快等优点。</p>
+<ul>
+<li><strong>SSD1306驱动OLED显示屏</strong></li>
+</ul>
+<p>SSD1306是一款用于驱动分辨率为128×64 OLED的显示驱动芯片，内置对比度控制、显示 RAM和振荡器，减少了外部组件和能耗，具有256级亮度控制，该芯片可以使用IIC总线接口或SPI（串行外围接口）与单片机进行连接通讯。</p>
+<ul>
+<li><strong>I2C 与 SPI 区别</strong></li>
+</ul>
+<p>I2C 只需两根信号线，而标准 SPI 至少四根信号，如果有多个从设备，信号需要更多。一些 SPI 变种虽然只使用三根线—— SCK、CS 和双向的 MISO/MOSI，但 CS 线还是要和从设备一对一根。另外，如果 SPI 要实现多主设备结构，总线系统需额外的逻辑和线路。用 I2C 构建系统总线唯一的问题是有限的 7 位地址空间，但这个问题新标准已经解决 --- 使用 10 位地址。</p>
+<p>如果应用中必须使用高速数据传输，那么 SPI 是必然的选择。因为 SPI 是全双工，IIC 的不是。SPI 没有定义速度限制，一般的实现通常能达到甚至超过 10Mbps。IIC 最高的速度也就快速+模式（1Mbps）和高速模式（3.4Mbps），后面的模式还需要额外的 I/O 缓冲区，还并不是总是容易实现的。SPI 适合数据流应用，而 IIC 更适合“字节设备”的多主设备应用。</p>
+<ul>
+<li><strong>第三方库文件</strong></li>
+</ul>
+<hr />
+<p>我们在libs文件夹中新建一个ssd1306.py。保存如下代码</p>
+<pre><code class="language-python"># MicroPython SSD1306 OLED driver, I2C and SPI interfaces Modified by Bigrich-Luo
+
+import time
+import framebuf
+
+# register definitions
+SET_CONTRAST        = const(0x81)
+SET_ENTIRE_ON       = const(0xa4)
+SET_NORM_INV        = const(0xa6)
+SET_DISP            = const(0xae)
+SET_MEM_ADDR        = const(0x20)
+SET_COL_ADDR        = const(0x21)
+SET_PAGE_ADDR       = const(0x22)
+SET_DISP_START_LINE = const(0x40)
+SET_SEG_REMAP       = const(0xa0)
+SET_MUX_RATIO       = const(0xa8)
+SET_COM_OUT_DIR     = const(0xc0)
+SET_DISP_OFFSET     = const(0xd3)
+SET_COM_PIN_CFG     = const(0xda)
+SET_DISP_CLK_DIV    = const(0xd5)
+SET_PRECHARGE       = const(0xd9)
+SET_VCOM_DESEL      = const(0xdb)
+SET_CHARGE_PUMP     = const(0x8d)
+
+
+class SSD1306:
+    def __init__(self, width, height, external_vcc):
+        self.width = width
+        self.height = height
+        self.external_vcc = external_vcc
+        self.pages = self.height // 8
+        # Note the subclass must initialize self.framebuf to a framebuffer.
+        # This is necessary because the underlying data buffer is different
+        # between I2C and SPI implementations (I2C needs an extra byte).
+        self.poweron()
+        self.init_display()
+
+    def init_display(self):
+        for cmd in (
+            SET_DISP | 0x00, # off
+            # address setting
+            SET_MEM_ADDR, 0x00, # horizontal
+            # resolution and layout
+            SET_DISP_START_LINE | 0x00,
+            SET_SEG_REMAP | 0x01, # column addr 127 mapped to SEG0
+            SET_MUX_RATIO, self.height - 1,
+            SET_COM_OUT_DIR | 0x08, # scan from COM[N] to COM0
+            SET_DISP_OFFSET, 0x00,
+            SET_COM_PIN_CFG, 0x02 if self.height == 32 else 0x12,
+            # timing and driving scheme
+            SET_DISP_CLK_DIV, 0x80,
+            SET_PRECHARGE, 0x22 if self.external_vcc else 0xf1,
+            SET_VCOM_DESEL, 0x30, # 0.83*Vcc
+            # display
+            SET_CONTRAST, 0xff, # maximum
+            SET_ENTIRE_ON, # output follows RAM contents
+            SET_NORM_INV, # not inverted
+            # charge pump
+            SET_CHARGE_PUMP, 0x10 if self.external_vcc else 0x14,
+            SET_DISP | 0x01): # on
+            self.write_cmd(cmd)
+        self.fill(0)
+        self.show()
+
+    def poweroff(self):
+        self.write_cmd(SET_DISP | 0x00)
+
+    def contrast(self, contrast):
+        self.write_cmd(SET_CONTRAST)
+        self.write_cmd(contrast)
+
+    def invert(self, invert):
+        self.write_cmd(SET_NORM_INV | (invert &amp; 1))
+
+    def show(self):
+        x0 = 0
+        x1 = self.width - 1
+        if self.width == 64:
+            # displays with width of 64 pixels are shifted by 32
+            x0 += 32
+            x1 += 32
+        self.write_cmd(SET_COL_ADDR)
+        self.write_cmd(x0)
+        self.write_cmd(x1)
+        self.write_cmd(SET_PAGE_ADDR)
+        self.write_cmd(0)
+        self.write_cmd(self.pages - 1)
+        self.write_framebuf()
+
+    def fill(self, col=0):
+        self.framebuf.fill(col)
+
+    def pixel(self, x, y, col=1):
+        self.framebuf.pixel(x, y, col)
+
+    def scroll(self, dx, dy):
+        self.framebuf.scroll(dx, dy)
+
+    def text(self, string, x, y, col=1):
+        self.framebuf.text(string, x, y, col)
+
+
+class SSD1306_I2C(SSD1306):
+    def __init__(self, width, height, i2c, addr=0x3c, external_vcc=False):
+        self.i2c = i2c
+        self.addr = addr
+        self.temp = bytearray(2)
+        # Add an extra byte to the data buffer to hold an I2C data/command byte
+        # to use hardware-compatible I2C transactions.  A memoryview of the
+        # buffer is used to mask this byte from the framebuffer operations
+        # (without a major memory hit as memoryview doesn't copy to a separate
+        # buffer).
+        self.buffer = bytearray(((height // 8) * width) + 1)
+        self.buffer[0] = 0x40  # Set first byte of data buffer to Co=0, D/C=1
+        self.framebuf = framebuf.FrameBuffer1(memoryview(self.buffer)[1:], width, height)
+        super().__init__(width, height, external_vcc)
+
+
+
+    def write_cmd(self, cmd):
+        self.temp[0] = 0x80 # Co=1, D/C#=0
+        self.temp[1] = cmd
+        self.i2c.writeto(self.addr, self.temp)
+
+    def write_framebuf(self):
+        # Blast out the frame buffer using a single I2C transaction to support
+        # hardware I2C interfaces.
+        self.i2c.writeto(self.addr, self.buffer)
+
+
+    def display_zh_character(self,character, x, y):
+        character_dict = {}   
+        num_list = self.character_dict[character]
+        for i in range(16):
+            left = bin(num_list[i]).replace('0b', '')
+            right = bin(num_list[i + 16]).replace('0b', '')
+
+            # 补 0
+            while len(left) &lt; 8:
+                left = '0' + left
+
+            while len(right) &lt; 8:
+                right = '0' + right
+
+            num_binary = left+right
+
+            for j in range(len(num_binary)):
+                self.pixel(x + j, y + i, int(num_binary[j]))
+
+    def display_zh(self,text, x, y):
+        for i in range(len(text)):
+            self.display_zh_character(text[i], x + i * 16, y)
+
+    def poweron(self):
+        pass
+
+
+class SSD1306_SPI(SSD1306):
+    def __init__(self, width, height, spi, dc, res, cs, external_vcc=False):
+        self.rate = 10 * 1024 * 1024
+        dc.init(dc.OUT, value=0)
+        res.init(res.OUT, value=0)
+        cs.init(cs.OUT, value=1)
+        self.spi = spi
+        self.dc = dc
+        self.res = res
+        self.cs = cs
+        self.buffer = bytearray((height // 8) * width)
+        self.framebuf = framebuf.FrameBuffer1(self.buffer, width, height)
+        super().__init__(width, height, external_vcc)
+
+    def write_cmd(self, cmd):
+        self.spi.init(baudrate=self.rate, polarity=0, phase=0)
+        self.cs.on()
+        self.dc.off()
+        self.cs.off()
+        self.spi.write(bytearray([cmd]))
+        self.cs.on()
+
+    def write_framebuf(self):
+        self.spi.init(baudrate=self.rate, polarity=0, phase=0)
+        self.cs.on()
+        self.dc.on()
+        self.cs.off()
+        self.spi.write(self.buffer)
+        self.cs.on()
+
+    def poweron(self):
+        self.res.on()
+        time.sleep_ms(1)
+        self.res.off()
+        time.sleep_ms(10)
+        self.res.on()
+</code></pre>
+<hr />
+<h4 id="oled_1">实验一：OLED液晶屏的显示</h4>
+<hr />
+<p><strong>代码如下：</strong></p>
+<pre><code class="language-python">from machine import Pin, I2C
+from libs.ssd1306 import SSD1306_I2C
+import  time
+
+i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=400000)  # ESP32常用引脚
+oled = SSD1306_I2C(128, 64, i2c)  # 初始化对象
+
+# 一、清屏。oled.fill(col),参数colcol可不写默认为0显示点的颜色（1-白色，0-黑色）
+oled.fill(0)  
+
+'''
+ 2、在指定的位置显示文本。
+ text(string, x, y, col=1)，第一个参数为显示字符串，x,y为显示位置，col可不写默认为1显示点的颜色（1-白色，0-黑色）
+'''
+oled.text(&quot;Hello, MicroPython!&quot;, 0, 0)  # 在指定位置显示文本
+oled.text(&quot;Temp: 25.5C&quot;, 0, 16)
+
+# 3、启动显示
+oled.show()
+time.sleep(3)
+
+# 4、在指定位置显示一个点。oled.pixel(x，y，col) x,y表示坐标，col可不写默认为1显示点的颜色（1-白色，0-黑色）
+oled.fill(0)  
+for i in range(64):
+    oled.pixel(3,i)
+oled.show()
+time.sleep(3)
+
+# 5、指定横纵方向上移动步数移动显示对象
+for _ in range(128):
+    oled.scroll(1, 0)  # dx=1（向右），dy=0
+    oled.show()
+    time.sleep(0.02)
+</code></pre>
+<hr />
+<h4 id="oled_2">实验二：OLED显示中文</h4>
+<hr />
+<p>如果你想要在屏幕上显示中文，我们常用的方法是，使用取模软件，对用到的字体进行取模。<a href="https://pan.baidu.com/s/1S0v3DaqHTaHjxRxuwK5tBw?pwd=5qrn">点击下载</a>（网盘提取码:<u> 5qrn</u>）</p>
+<p>下载后，进行解压缩就可以使用了：</p>
+<p><img alt="15-3.png" src="../../img/15-3.png" /></p>
+<p>打开 <code>PCtoLCD2002.exe</code>，点击设置，按照下图设置</p>
+<p><img alt="15-4.png" src="../../img/15-4.png" /></p>
+<p>输入想要取模的汉字，点击生成字模</p>
+<p><img alt="15-5.png" src="../../img/15-5.png" /></p>
+<p>将字模文件，整理成如下字典的格式：</p>
+<pre><code class="language-python">character_dict = {
+    '乐': [0x00,0x00,0x1F,0x10,0x11,0x21,0x21,0x3F,0x01,0x09,0x09,0x11,0x21,0x41,0x05,0x02,
+          0x20,0xF0,0x00,0x00,0x00,0x00,0x00,0xFC,0x00,0x20,0x10,0x08,0x04,0x04,0x00,0x00],
+
+    '启': [0x01,0x00,0x1F,0x10,0x10,0x10,0x1F,0x10,0x10,0x10,0x17,0x24,0x24,0x44,0x87,0x04,
+          0x00,0x80,0xFC,0x04,0x04,0x04,0xFC,0x00,0x00,0x00,0xFC,0x04,0x04,0x04,0xFC,0x04],
+
+    '智': [0x20,0x3E,0x48,0x08,0xFF,0x14,0x22,0x40,0x1F,0x10,0x10,0x1F,0x10,0x10,0x1F,0x10,
+          0x00,0x7C,0x44,0x44,0x44,0x44,0x7C,0x00,0xF0,0x10,0x10,0xF0,0x10,0x10,0xF0,0x10]
+}
+</code></pre>
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">from machine import Pin, I2C
+from libs.ssd1306 import SSD1306_I2C
+import  time
+
+i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=400000)  # ESP32常用引脚
+oled = SSD1306_I2C(128, 64, i2c)  # 初始化对象
+
+
+'''
+通过取模的方法建立汉字字典
+'''
+# 建立汉字字典，并将之前的取模文件复制进来
+oled.character_dict = {
+    '乐': [0x00,0x00,0x1F,0x10,0x11,0x21,0x21,0x3F,0x01,0x09,0x09,0x11,0x21,0x41,0x05,0x02,
+          0x20,0xF0,0x00,0x00,0x00,0x00,0x00,0xFC,0x00,0x20,0x10,0x08,0x04,0x04,0x00,0x00],
+
+    '启': [0x01,0x00,0x1F,0x10,0x10,0x10,0x1F,0x10,0x10,0x10,0x17,0x24,0x24,0x44,0x87,0x04,
+          0x00,0x80,0xFC,0x04,0x04,0x04,0xFC,0x00,0x00,0x00,0xFC,0x04,0x04,0x04,0xFC,0x04],
+
+    '智': [0x20,0x3E,0x48,0x08,0xFF,0x14,0x22,0x40,0x1F,0x10,0x10,0x1F,0x10,0x10,0x1F,0x10,
+          0x00,0x7C,0x44,0x44,0x44,0x44,0x7C,0x00,0xF0,0x10,0x10,0xF0,0x10,0x10,0xF0,0x10]
+}
+
+# 清屏
+oled.fill(0)
+
+'''
+调用显示汉字的类方法:
+display_zh(text, x, y)
+text为前面取模出来的汉字组合（一定要），x,y 为汉字显示的起始位置
+'''
+oled.display_zh('乐启智',30, 20)
+oled.show()
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/" class="btn btn-neutral float-left" title="16.LCD液晶显示屏"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/" class="btn btn-neutral float-right" title="18.8×8点阵屏">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

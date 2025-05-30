@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>10.步进电机 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "10.\u6b65\u8fdb\u7535\u673a";
+        var mkdocs_page_input_path = "MicroPython\\\u6b65\u8fdb\u7535\u673a.md";
+        var mkdocs_page_url = "/MicroPython/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">10.步进电机</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_2">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">实验一：指定步进电机转动角度</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/">15.四位时钟数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">10.步进电机</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">步进电机</h1>
+<hr />
+<h2 id="_2">准备工作</h2>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">步进电机</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="9-1.jpg" src="../../img/9-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">步进电机</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">步进电机</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">步进电机</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">步进电机</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>步进电机介绍</strong></p>
+<hr />
+<p>步进电机是一种用电脉冲控制运转的电动机，带每输入一个电脉冲，就会转动一定的角度，因此步进电机又称为脉冲电动机。步进电机的转速与脉冲频率成正比。脉冲频率越高，单位时间内输入电动机的脉冲个数越多，转动的角度越大，即转速越快。</p>
+<p>与所有电机一样，步进电机也包括固定部分（定子）和活动部分（转子）。定子上有缠绕了线圈的齿轮状突起，而转子为永磁体或可变磁阻铁芯。稍后我们将更深入地介绍不同的转子结构。</p>
+<p><img alt="9-2.png" src="../../img/9-2.png" /></p>
+<p><strong>步进电机的基本工作原理为：</strong></p>
+<ul>
+<li>
+<p>给一个或多个定子相位通电，线圈中通过的电流会产生磁场，而转子会与该磁场对齐；</p>
+</li>
+<li>
+<p>依次给不同的相位施加电压，转子将旋转特定的角度并最终到达需要的位置。</p>
+</li>
+</ul>
+<p>下图显示了其工作原理。首先，线圈 A 通电并产生磁场，转子与该磁场对齐；线圈 B 通电后，转子顺时针旋转 60° 以与新的磁场对齐；线圈 C 通电后也会出现同样的情况。下图中定子小齿的颜色指示出定子绕组产生的磁场方向。</p>
+<p><img alt="9-3.png" src="../../img/9-3.png" /></p>
+<p>我们今天实验用到的是 28BYJ-48 步进电机，28BYJ-48 含义：<code>28</code> 指的是电机最大外径，<code>B</code> 指的是步进式电机，<code>Y</code> 指的是永磁式电机，<code>J</code> 指的是减速型电机，<code>48</code> 表示可以四相八拍。换句话说，28BYJ-48 的含义为外径 28 毫米四相八拍式永磁减速型步进电机。</p>
+<p>首先我们需要了解什么是 <code>4相永磁式</code>，28BYJ-48 的内部结构示意图如下所示。先看里圈，它上面有 6 个齿，分别标注为 0～5，这个叫做转子，顾名思义，它是要转动的，转子的每个齿上都带有永久的磁性，是一块永磁体，这就是 <code>永磁式</code> 的概念。再看外圈，这个就是定子，它是保持不动的，实际上它是跟电机的外壳固定在一起的，它上面有 8 个齿，而每个齿上都缠上了一个线圈绕组，正对着的 2 个齿上的绕组又是串联在一起的，也就是说正对着的 2 个绕组总是会同时导通或关断的，如此就形成了 4 相，在图中分别标注为 A-B-C-D，这就是 <code>4相</code> 的概念。</p>
+<p><img alt="9-4.png" src="../../img/9-4.png" /></p>
+<p><strong>步进电机驱动方式三种工作模式：</strong></p>
+<ul>
+<li>
+<p><code>单四拍：</code>这是最简单的步进电机驱动方式。这种方式，电机在每个瞬间只有一个线圈导通，消耗电力小。但在切换瞬间时没有任何的电磁作用在转子上，容易造成振动，也容易因为惯性而失步；</p>
+</li>
+<li>
+<p><code>双四拍</code>：这种方式输出的转矩较大且振动较少，切换过程中至少有一个线圈通电作用于转子，使得输出的转矩较大，振动较小，也比单四拍平稳，不易失步；</p>
+</li>
+<li>
+<p><code>八拍</code>：综合上述两种驱动信号，使用单四拍和双四拍交替进行的方式，每传送一个励磁信号，步进电机前进半个步距角。其特点是分辨率高，运转更加平滑，也是最常用的一种方式；</p>
+</li>
+</ul>
+<p>接着，我们需要了解一下他的工作原理，假定电机的起始状态就如上图所示，逆时针方向转动，起始时是 B 相绕组的开关闭合，B 相绕组导通，那么导通电流就会在正上和正下两个定子齿上产生磁性，这两个定子齿上的磁性就会对转子上的 0 和 3 号齿产生最强的吸引力，就会如图所示的那样，转子的 0 号齿在正上、3 号齿在正下而处于平衡状态；此时我们会发现，转子的 1 号齿与右上的定子齿也就是 C 相的一个绕组呈现一个很小的夹角，2 号齿与右边的定子齿也就是 D 相绕组呈现一个稍微大一点的夹角。</p>
+<p>接下来，我们把 B 相绕组断开，而使 C 相绕组导通，右上的定子齿将对转子 1 号齿产生最大的吸引力，而左下的定子齿将对转子 4 号齿，产生最大的吸引力，在这个吸引力的作用下，转子 1、4 号齿将对齐到右上和左下的定子齿上而保持平衡。</p>
+<p>再接下来，断开 C 相绕组，导通 D 相绕组，过程与上述的情况完全相同，最终将使转子 2、5 号齿与定子 D 相绕组对齐，转子又转过了上述同样的角度。</p>
+<p>当 A 相绕组再次导通，即完成一个 B-C-D-A 的四节拍操作后，转子的 0、3 号齿将由原来的对齐到上下 2 个定子齿，而变为了对齐到左上和右下的两个定子齿上，即转子转过了一个定子齿的角度。依此类推，再来一个四节拍，转子就将再转过一个齿的角度，8个四节拍以后转子将转过完整的一圈，而其中单个节拍使转子转过的角度就很容易计算出来了，即 <code>360°/(8 * 4) = 11.25°</code>，这个值就叫做 <code>步进角度</code>。而上述这种工作模式就是步进电机的 <code>单四拍模式</code>。</p>
+<p><code>八拍</code> 就是在单四拍的每两个节拍之间再插入一个双绕组导通的中间节拍，组成八拍模式。比如，在从 B 相导通到 C 项导通的过程中，假如一个 B 相和 C 相同时导通的节拍，这个时候，由于 B、C 两个绕组的定子齿对它们附近的转子齿同时产生相同的吸引力，这将导致这两个转子齿的中心线对比到 B、C 两个绕组的中心线上。这样一来，就使转动精度增加了一倍，而转子转动一圈则需要 8*8=64 拍。</p>
+<p><code>双四拍</code> 的工作模式其实就是把八拍模式中的两个绕组同时通电的那四拍单独拿出来，而舍弃掉单绕组通电的那四拍而已。其步进角度同单四拍是一样的，但由于它是两个绕组同时导通，所以扭矩会比单四拍模式大。</p>
+<p><code>八拍模式</code> 是这类4相步进电机的最佳工作模式，能最大限度的发挥电机的各项性能，也是绝大多数实际工程中所选择的模式。</p>
+<p>转子转 64 圈，最终输出轴才会转一圈，也就是需要 64×64=4096 个节拍输出轴才转过一圈。4096 个节拍转动一圈，那么一个节拍转动的角度（步进角度）就是 360/4096 度。</p>
+<p>单片机的管脚输出电流较小，只有零点几个毫安，吸纳电没也只有十几个毫安（大多数单片机只有几个毫安），输出最高电压也不会越过 5V，由于这个原因很少用单片机直接驱动外设。ULN2003 的作用就是把单片机的信号进行放大，吸纳电流可以达到 500mA，耐压也提高很多，基本能满足微型步进电机的驱动电流和电压。</p>
+<hr />
+<h2 id="_3">实验一：指定步进电机转动角度</h2>
+<hr />
+<p><strong>第三方库的使用</strong></p>
+<p>新建一个Python文件，我们示例为：StepperMotor，保存到libs文件夹中。</p>
+<ul>
+<li><strong>程序如下：</strong></li>
+</ul>
+<pre><code class="language-python">from machine import Pin
+import time
+
+class StepperMotor:
+    &quot;&quot;&quot;
+    MicroPython 步进电机控制类 (ULN2003A驱动)
+    适用于 28BYJ-48 等四相五线步进电机
+
+    特性：
+    - 支持全步模式（4步序列）和半步模式（8步序列）
+    - 可精确控制旋转角度或步数
+    - 支持转速（RPM）设置
+    - 提供电机释放功能以减少能耗
+    &quot;&quot;&quot;
+
+    # 半步控制序列（8步模式，更高精度）
+    # 每个子列表代表一个步进状态，1表示线圈通电，0表示断电
+    # 序列顺序影响电机旋转方向
+    SEQ_HALF_STEP = [
+        [1, 0, 0, 0],  # 步1: 仅IN1通电
+        [1, 1, 0, 0],  # 步2: IN1+IN2通电
+        [0, 1, 0, 0],  # 步3: 仅IN2通电
+        [0, 1, 1, 0],  # 步4: IN2+IN3通电
+        [0, 0, 1, 0],  # 步5: 仅IN3通电
+        [0, 0, 1, 1],  # 步6: IN3+IN4通电
+        [0, 0, 0, 1],  # 步7: 仅IN4通电
+        [1, 0, 0, 1]   # 步8: IN4+IN1通电
+    ]
+
+    # 全步控制序列（4步模式，更高扭矩）
+    SEQ_FULL_STEP = [
+        [1, 0, 0, 0],  # 步1: IN1通电
+        [0, 1, 0, 0],  # 步2: IN2通电
+        [0, 0, 1, 0],  # 步3: IN3通电
+        [0, 0, 0, 1]   # 步4: IN4通电
+    ]
+
+    def __init__(self, in1, in2, in3, in4, mode='half'):
+        &quot;&quot;&quot;
+        初始化步进电机
+        参数:
+            in1, in2, in3, in4 (int): 连接ULN2003A的4个GPIO引脚编号
+            mode (str): 'half'=半步模式（默认，更平滑），'full'=全步模式（扭矩更大）
+        &quot;&quot;&quot;
+        # 初始化4个控制引脚为输出模式
+        self.pins = [
+            Pin(in1, Pin.OUT),
+            Pin(in2, Pin.OUT),
+            Pin(in3, Pin.OUT),
+            Pin(in4, Pin.OUT)
+        ]
+
+        # 设置步进模式
+        self.mode = mode
+        self.step_seq = self.SEQ_HALF_STEP if mode == 'half' else self.SEQ_FULL_STEP
+        self.step_count = len(self.step_seq)  # 步进序列长度（4或8）
+
+        # 电机状态跟踪
+        self.current_step = 0   # 当前步进位置（0到step_count-1）
+        self.direction = 1      # 旋转方向：1=顺时针，-1=逆时针
+
+        # 28BYJ-48电机参数（实际步数需根据减速比计算）
+        # 全步模式：64步/转 × 32齿轮减速比 = 2048步/转
+        # 半步模式：64×2步/转 × 32减速比 = 4096步/转
+        self.steps_per_rev = 4096 if mode == 'half' else 2048
+
+    def set_step(self, step):
+        &quot;&quot;&quot;
+        设置当前步进状态
+        参数:
+            step (int): 步进序列索引（0到step_count-1）
+        &quot;&quot;&quot;
+        # 将步进序列应用到GPIO引脚
+        for i in range(4):
+            self.pins[i].value(self.step_seq[step][i])
+
+    def step(self, steps, delay_ms=2):
+        &quot;&quot;&quot;
+        驱动电机步进指定步数
+        参数:
+            steps (int): 步数（正数=顺时针，负数=逆时针）
+            delay_ms (int): 步间延迟时间（毫秒），控制转速
+        &quot;&quot;&quot;
+        self.direction = 1 if steps &gt; 0 else -1
+        steps = abs(steps)  # 取绝对值方便循环
+
+        for _ in range(steps):
+            # 计算下一步位置（循环步进序列）
+            self.current_step = (self.current_step + self.direction) % self.step_count
+            self.set_step(self.current_step)
+            time.sleep_ms(delay_ms)
+
+        # 步进完成后释放电机（可选）
+        self.release()
+
+    def rotate(self, degrees, delay_ms=2):
+        &quot;&quot;&quot;
+        旋转指定角度
+        参数:
+            degrees (float): 角度（正数=顺时针，负数=逆时针）
+            delay_ms (int): 步间延迟（毫秒）
+        &quot;&quot;&quot;
+        # 计算所需步数：步数 = (角度/360) × 每转步数
+        steps = int(self.steps_per_rev * degrees / 360)
+        self.step(steps, delay_ms)
+
+    def set_speed(self, rpm):
+        &quot;&quot;&quot;
+        计算指定转速对应的步间延迟
+        参数:
+            rpm (float): 期望转速（转/分钟）
+        返回:
+            int: 对应的步间延迟（毫秒）
+        &quot;&quot;&quot;
+        if rpm &lt;= 0:
+            return 0
+        # 计算每步时间（秒）：60秒 ÷ (每转步数 × RPM)
+        step_delay_sec = 60.0 / (self.steps_per_rev * rpm)
+        return int(step_delay_sec * 1000)  # 转换为毫秒
+
+    def release(self):
+        &quot;&quot;&quot;释放电机（关闭所有线圈，减少能耗和发热）&quot;&quot;&quot;
+        for pin in self.pins:
+            pin.value(0)
+
+
+
+</code></pre>
+<ul>
+<li><strong>接下来在主程序中导入刚才的库文件就可以使用了</strong></li>
+</ul>
+<pre><code class="language-python"># 导入第三方库文件
+from libs.StepperMotor import StepperMotor
+
+# 初始化电机（前4个参数为：对应的引脚；第五个参数：默认，更平滑）
+motor = StepperMotor(4, 12, 13, 14, mode='half')
+
+
+&quot;&quot;&quot;
+旋转指定角度
+参数:
+degrees (float): 角度（正数=顺时针，负数=逆时针）
+delay_ms (int): 步间延迟（毫秒），延时越短，转速越快
+&quot;&quot;&quot;
+motor.rotate(90, delay_ms= 2) # 旋转90度（速度约10RPM）
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%E8%88%B5%E6%9C%BA/" class="btn btn-neutral float-left" title="9.舵机"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/" class="btn btn-neutral float-right" title="11.按键模块">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%E8%88%B5%E6%9C%BA/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

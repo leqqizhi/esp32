@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="胡长国" /><link rel="canonical" href="https://shop143975681.taobao.com/MicroPython/%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>15.四位时钟数码管 - 小小工程师技术文档</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "15.\u56db\u4f4d\u65f6\u949f\u6570\u7801\u7ba1";
+        var mkdocs_page_input_path = "MicroPython\\\u56db\u4f4d\u65f6\u949f\u6570\u7801\u7ba1.md";
+        var mkdocs_page_url = "/MicroPython/%E5%9B%9B%E4%BD%8D%E6%97%B6%E9%92%9F%E6%95%B0%E7%A0%81%E7%AE%A1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../img/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">ESP32单片机</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Mixly可视化编程</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Mixly/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">4.数码管显示</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../../Mixly/installation.md">5.四位数码管显示</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MicroPython文本编程</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1.环境搭建</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%82%B9%E4%BA%AELED%E7%81%AF/">2.点亮LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B5%81%E6%B0%B4%E7%81%AF/">3.流水灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%A4%E9%80%9A%E4%BF%A1%E5%8F%B7%E7%81%AF/">4.交通信号灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PWM%E5%91%BC%E5%90%B8%E7%81%AF/">5.PWM呼吸灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF/">6.RGB LED灯</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../RGB%20LED%E7%81%AF%E6%9D%A1/">7.RGB LED灯条</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA/">8.直流电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%88%B5%E6%9C%BA/">9.舵机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA/">10.步进电机</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%8C%89%E9%94%AE%E6%A8%A1%E5%9D%97/">11.按键模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD/">12.定时器中断</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%B8%80%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">13.一位数码管</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/">14.四位数码管</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">15.四位时钟数码管</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_2">准备工作</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">实验一：四位时钟数码管的显示</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">实验二：四位时钟数码管实时显示系统时间</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">实验三：四位时钟数码管显示时间（中断方式）</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/">16.LCD液晶显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../OLED%E6%98%BE%E7%A4%BA%E5%B1%8F/">17.OLED显示屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../8%C3%978%E7%82%B9%E9%98%B5%E5%B1%8F/">18.8×8点阵屏</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ADC%E6%95%B0%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8/">19.ADC数模转换器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%91%87%E6%9D%86%E6%8E%A7%E5%88%B6%E7%82%B9%E9%98%B5%E5%B1%8F%E4%B8%8A%E7%82%B9/">20.摇杆控制点阵屏上点</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%9C%82%E9%B8%A3%E5%99%A8%E6%A8%A1%E5%9D%97/">21.蜂鸣器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%A3%B0%E9%9F%B3%E4%BC%A0%E6%84%9F%E5%99%A8/">22.声音传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%8E%AF%E5%A2%83%E5%85%89%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/">23.环境光线传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%83%AD%E6%95%8F%E4%BC%A0%E6%84%9F%E5%99%A8/">24.热敏传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%AB%E7%84%B0%E4%BC%A0%E6%84%9F%E5%99%A8/">25.火焰传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%94%E4%BD%93%E4%BC%A0%E6%84%9F%E5%99%A8/">26.气体传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%A7%A6%E6%91%B8%E4%BC%A0%E6%84%9F%E5%99%A8/">27.触摸传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E4%BA%BA%E4%BD%93%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8/">28.人体感应传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%8D%E5%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">29.霍尔传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%80%BE%E6%96%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">30.倾斜传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9C%87%E5%8A%A8%E4%BC%A0%E6%84%9F%E5%99%A8/">31.震动传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E8%92%B8%E6%B0%94%E4%BC%A0%E6%84%9F%E5%99%A8/">32.水蒸气传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E9%9B%A8%E6%BB%B4%E4%BC%A0%E6%84%9F%E5%99%A8/">33.雨滴传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E6%B7%B1%E4%BC%A0%E6%84%9F%E5%99%A8/">34.水深传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%9C%9F%E5%A3%A4%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">35.土壤湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BF%80%E5%85%89%E9%98%B2%E7%9B%97/">36.激光防盗</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%BF%E9%9A%9C%E4%BC%A0%E6%84%9F%E5%99%A8/">37.红外避震传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%A7%BD%E5%9E%8B%E5%85%89%E7%94%B5%E4%BC%A0%E6%84%9F%E5%99%A8/">38.槽型光电传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%B6%85%E5%A3%B0%E6%B3%A2%E4%BC%A0%E6%84%9F%E5%99%A8/">39.超声波传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%95%B0%E5%AD%97%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">40.数字温度度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">41.温湿度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%81%B0%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8/">42.灰度传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%97%8B%E9%92%AE%E7%BC%96%E7%A0%81%E5%99%A8/">43.旋钮编码器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%B0%B4%E9%9B%BE%E5%8C%96%E6%A8%A1%E5%9D%97/">44.水雾化模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%A2%B0%E6%92%9E%E4%BC%A0%E6%84%9F%E5%99%A8/">45.碰撞传感器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E6%BB%91%E5%8A%A8%E7%94%B5%E4%BD%8D%E5%99%A8/">46.滑动电位器</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E5%AE%9E%E6%97%B6%E6%97%B6%E9%92%9F%E6%A8%A1%E5%9D%97/">47.实时时钟模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E7%BA%A2%E5%A4%96%E9%81%A5%E6%8E%A7%E6%A8%A1%E5%9D%97/">48.红外遥控模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MPU6050%20%E9%99%80%E8%9E%BA%E4%BB%AA%E6%A8%A1%E5%9D%97/">49.MPU6050 陀螺仪模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../NFC%E6%84%9F%E5%BA%94%E8%AF%BB%E5%86%99%E5%8D%A1%E6%A8%A1%E5%9D%97/">50.NFC感应读写卡模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../TCS342%E9%A2%9C%E8%89%B2%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A8%A1%E5%9D%97/">51.TCS342颜色传感器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../SD%E8%AF%BB%E5%8D%A1%E5%99%A8%E6%A8%A1%E5%9D%97/">52.SD读卡器模块</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9D%97/">53.语音模块</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">小小工程师技术文档</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ESP32单片机</li>
+          <li class="breadcrumb-item">MicroPython文本编程</li>
+      <li class="breadcrumb-item active">15.四位时钟数码管</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="_1">四位时钟数码管</h3>
+<hr />
+<h4 id="_2">准备工作</h4>
+<ul>
+<li><strong>用到的器材</strong></li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ESP32开发板</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ESP32拓展版</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">四位时钟数码管</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>电路搭建</strong></li>
+</ul>
+<hr />
+<p><img alt="14-1.jpg" src="../../img/14-1.jpg" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: center;">引脚号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">四位时钟数码管-CLK</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">四位时钟数码管-DIO</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">四位时钟数码管-VCC</td>
+<td style="text-align: center;">P2</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">四位时钟数码管-GND</td>
+<td style="text-align: center;">P2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li><strong>四位时钟数码管介绍</strong></li>
+</ul>
+<p>四位时钟数码管介绍由一个12管脚的4位7段共阳极数码管和一个控制芯片TM1637构成。另一边是数码管的图标标志。此产品可以应用在时间显示，秒表显示以及其他需要显示数字的设备上。</p>
+<ul>
+<li><strong>第三方库</strong></li>
+</ul>
+<p>我们在libs文件夹中新建一个TM1637.py文件，把网上的地方放库保存进去就可以使用了：</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+四位时钟数码管TM1637类
+&quot;&quot;&quot;
+
+from micropython import const
+from machine import Pin
+from time import sleep_us, sleep_ms
+
+TM1637_CMD1 = const(64)  # 0x40 data command
+TM1637_CMD2 = const(192) # 0xC0 address command
+TM1637_CMD3 = const(128) # 0x80 display control command
+TM1637_DSP_ON = const(8) # 0x08 display on
+TM1637_DELAY = const(10) # 10us delay between clk/dio pulses
+TM1637_MSB = const(128)  # msb is the decimal point or the colon depending on your display
+
+# 0-9, a-z, blank, dash, star
+_SEGMENTS = bytearray(b'\x3F\x06\x5B\x4F\x66\x6D\x7D\x07\x7F\x6F\x77\x7C\x39\x5E\x79\x71\x3D\x76\x06\x1E\x76\x38\x55\x54\x3F\x73\x67\x50\x6D\x78\x3E\x1C\x2A\x76\x6E\x5B\x00\x40\x63')
+
+class TM1637(object):
+    &quot;&quot;&quot;Library for quad 7-segment LED modules based on the TM1637 LED driver.&quot;&quot;&quot;
+    def __init__(self, clk, dio, brightness=7):
+        self.clk = clk
+        self.dio = dio
+
+        if not 0 &lt;= brightness &lt;= 7:
+            raise ValueError(&quot;Brightness out of range&quot;)
+        self._brightness = brightness
+
+        self.clk.init(Pin.OUT, value=0)
+        self.dio.init(Pin.OUT, value=0)
+        sleep_us(TM1637_DELAY)
+
+        self._write_data_cmd()
+        self._write_dsp_ctrl()
+
+    def _start(self):
+        self.dio(0)
+        sleep_us(TM1637_DELAY)
+        self.clk(0)
+        sleep_us(TM1637_DELAY)
+
+    def _stop(self):
+        self.dio(0)
+        sleep_us(TM1637_DELAY)
+        self.clk(1)
+        sleep_us(TM1637_DELAY)
+        self.dio(1)
+
+    def _write_data_cmd(self):
+        # automatic address increment, normal mode
+        self._start()
+        self._write_byte(TM1637_CMD1)
+        self._stop()
+
+    def _write_dsp_ctrl(self):
+        # display on, set brightness
+        self._start()
+        self._write_byte(TM1637_CMD3 | TM1637_DSP_ON | self._brightness)
+        self._stop()
+
+    def _write_byte(self, b):
+        for i in range(8):
+            self.dio((b &gt;&gt; i) &amp; 1)
+            sleep_us(TM1637_DELAY)
+            self.clk(1)
+            sleep_us(TM1637_DELAY)
+            self.clk(0)
+            sleep_us(TM1637_DELAY)
+        self.clk(0)
+        sleep_us(TM1637_DELAY)
+        self.clk(1)
+        sleep_us(TM1637_DELAY)
+        self.clk(0)
+        sleep_us(TM1637_DELAY)
+
+    def brightness(self, val=None):
+        &quot;&quot;&quot;Set the display brightness 0-7.&quot;&quot;&quot;
+        # brightness 0 = 1/16th pulse width
+        # brightness 7 = 14/16th pulse width
+        if val is None:
+            return self._brightness
+        if not 0 &lt;= val &lt;= 7:
+            raise ValueError(&quot;Brightness out of range&quot;)
+
+        self._brightness = val
+        self._write_data_cmd()
+        self._write_dsp_ctrl()
+
+    def write(self, segments, pos=0):
+        &quot;&quot;&quot;Display up to 6 segments moving right from a given position.
+        The MSB in the 2nd segment controls the colon between the 2nd
+        and 3rd segments.&quot;&quot;&quot;
+        if not 0 &lt;= pos &lt;= 5:
+            raise ValueError(&quot;Position out of range&quot;)
+        self._write_data_cmd()
+        self._start()
+
+        self._write_byte(TM1637_CMD2 | pos)
+        for seg in segments:
+            self._write_byte(seg)
+        self._stop()
+        self._write_dsp_ctrl()
+
+    def encode_digit(self, digit):
+        &quot;&quot;&quot;Convert a character 0-9, a-f to a segment.&quot;&quot;&quot;
+        return _SEGMENTS[digit &amp; 0x0f]
+
+    def encode_string(self, string):
+        &quot;&quot;&quot;Convert an up to 4 character length string containing 0-9, a-z,
+        space, dash, star to an array of segments, matching the length of the
+        source string.&quot;&quot;&quot;
+        segments = bytearray(len(string))
+        for i in range(len(string)):
+            segments[i] = self.encode_char(string[i])
+        return segments
+
+    def encode_char(self, char):
+        &quot;&quot;&quot;Convert a character 0-9, a-z, space, dash or star to a segment.&quot;&quot;&quot;
+        o = ord(char)
+        if o == 32:
+            return _SEGMENTS[36] # space
+        if o == 42:
+            return _SEGMENTS[38] # star/degrees
+        if o == 45:
+            return _SEGMENTS[37] # dash
+        if o &gt;= 65 and o &lt;= 90:
+            return _SEGMENTS[o-55] # uppercase A-Z
+        if o &gt;= 97 and o &lt;= 122:
+            return _SEGMENTS[o-87] # lowercase a-z
+        if o &gt;= 48 and o &lt;= 57:
+            return _SEGMENTS[o-48] # 0-9
+        raise ValueError(&quot;Character out of range: {:d} '{:s}'&quot;.format(o, chr(o)))
+
+    def hex(self, val):
+        &quot;&quot;&quot;Display a hex value 0x0000 through 0xffff, right aligned.&quot;&quot;&quot;
+        string = '{:04x}'.format(val &amp; 0xffff)
+        self.write(self.encode_string(string))
+
+    def number(self, num):
+        &quot;&quot;&quot;Display a numeric value -999 through 9999, right aligned.&quot;&quot;&quot;
+        # limit to range -999 to 9999
+        num = max(-999, min(num, 9999))
+        string = '{0: &gt;4d}'.format(num)
+        self.write(self.encode_string(string))
+
+    def numbers(self, num1, num2, colon=True):
+        &quot;&quot;&quot;Display two numeric values -9 through 99, with leading zeros
+        and separated by a colon.&quot;&quot;&quot;
+        num1 = max(-9, min(num1, 99))
+        num2 = max(-9, min(num2, 99))
+        segments = self.encode_string('{0:0&gt;2d}{1:0&gt;2d}'.format(num1, num2))
+        if colon:
+            segments[1] |= 0x80 # colon on
+        self.write(segments)
+
+    def temperature(self, num):
+        if num &lt; -9:
+            self.show('lo') # low
+        elif num &gt; 99:
+            self.show('hi') # high
+        else:
+            string = '{0: &gt;2d}'.format(num)
+            self.write(self.encode_string(string))
+        self.write([_SEGMENTS[38], _SEGMENTS[12]], 2) # degrees C
+
+    def show(self, string, colon=False):
+        segments = self.encode_string(string)
+        if len(segments) &gt; 1 and colon:
+            segments[1] |= 128
+        self.write(segments[:4])
+
+    def scroll(self, string, delay=250):
+        segments = string if isinstance(string, list) else self.encode_string(string)
+        data = [0] * 8
+        data[4:0] = list(segments)
+        for i in range(len(segments) + 5):
+            self.write(data[0+i:4+i])
+            sleep_ms(delay)
+
+
+class TM1637Decimal(TM1637):
+    &quot;&quot;&quot;用于驱动基于TM1637芯片的四位数码管模块（带小数点版本）&quot;&quot;&quot;
+    def encode_string(self, string):
+        &quot;&quot;&quot;
+        将字符串转换为数码管段码序列
+        参数:string: 输入字符串（支持0-9、a-z、空格、横杠、星号及小数点）
+        返回:bytearray: 转换后的段码数组，长度与输入字符串中非小数点字符数相同
+        &quot;&quot;&quot;
+        # 移除字符串中的所有小数点后计算字符总数，初始化对应长度的段码数组
+        segments = bytearray(len(string.replace('.', '')))  # 创建存储段码的缓冲区:ml-citation{ref=&quot;4,5&quot; data=&quot;citationList&quot;}
+        j = 0  # 段码数组的当前写入位置
+        for i in range(len(string)):
+            # 当遇到小数点且前一个字符已处理时，将小数点附加到前一个段码
+            if string[i] == '.' and j &gt; 0:
+                segments[j-1] |= TM1637_MSB  # 通过设置最高位(MSB)激活小数点:ml-citation{ref=&quot;1,4&quot; data=&quot;citationList&quot;}
+                continue
+            # 将当前字符转换为对应的段码并存入数组
+            segments[j] = self.encode_char(string[i])  # 调用基类编码方法:ml-citation{ref=&quot;2,7&quot; data=&quot;citationList&quot;}
+            j += 1  # 移动写入位置指针
+        return segments
+</code></pre>
+<h4 id="_3">实验一：四位时钟数码管的显示</h4>
+<p><strong>程序如下：</strong></p>
+<pre><code class="language-python">from libs.TM1637 import TM1637
+from machine import Pin
+import time
+
+# 初始化（假设CLK=GPIO22, DIO=GPIO21）
+display = TM1637(clk=Pin(22),dio=Pin(21))
+
+display.show(&quot;    &quot;) # 四个空格，清屏
+time.sleep(1)
+
+display.hex(10)  #十六进制A
+time.sleep(1)
+
+display.number(1234)  # 显示数字，范围0-9999
+time.sleep(1)
+
+display.numbers(1,51,1) # 时间显示，传递2个数值，最后一位1是点亮0是灭
+time.sleep(1)
+
+display.temperature(22) #温度显示
+time.sleep(1)
+
+display.show(&quot;2  9&quot;) # 输入空格则不显示，可用于清屏
+time.sleep(1)
+
+display.show(&quot;{}   &quot;.format(8))
+time.sleep(1)
+
+display.show(&quot; %.2d&quot;%6) #显示06
+time.sleep(1)
+</code></pre>
+<hr />
+<h4 id="_4">实验二：四位时钟数码管实时显示系统时间</h4>
+<hr />
+<ul>
+<li><strong>内部实时时钟</strong></li>
+</ul>
+<p>ESP32单片机内部的RTC使用machine模块中的RTC类及其内部函数来配置</p>
+<ul>
+<li><strong>导入RTC模块并初始化</strong></li>
+</ul>
+<p><code>python
+  from machine import RTC
+  rtc = RTC()  # 创建RTC对象</code></p>
+<ul>
+<li><strong>设置时间</strong></li>
+</ul>
+<p><code>python
+  # 格式：(年, 月, 日, 星期, 时, 分, 秒, 微秒)
+  rtc.datetime((2025, 5, 14, 1, 12, 30, 0, 0))  # 2025年5月14日 12:30:00（周一）</code></p>
+<ul>
+<li><strong>读取时间</strong></li>
+</ul>
+<p><code>python
+  current_time = rtc.datetime()
+  print(current_time)
+  # 输出：(2025, 5, 14, 2, 13, 58, 56, 69809
+  # 格式：(年, 月, 日, 星期, 时, 分, 秒, 微秒)3)</code></p>
+<blockquote>
+<p>返回的元组结构为：</p>
+<p><code>(year, month, day, weekday, hour, minute, second, microsecond)</code></p>
+<ul>
+<li>
+<p><strong>weekday</strong>: 0-6 对应 周一至周日（部分硬件为1-7）</p>
+</li>
+<li>
+<p><code>rtc.datetime()</code>没有传入参数时，获取系统时间，一单被传参后，将无法获取系统时间</p>
+</li>
+<li>
+<p>传参的时候是元组的形式，注意是双层（）</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>代码如下</strong></p>
+<pre><code class="language-python">'''
+实时获取系统时间并显示
+'''
+from libs.TM1637 import TM1637
+from machine import Pin,RTC
+import time
+
+# 初始化（假设CLK=GPIO22, DIO=GPIO21）
+display = TM1637(clk=Pin(22),dio=Pin(21))
+rtc = RTC()  # 创建RTC对象
+
+a = rtc.datetime()
+hour = a[4]
+minute = a[5]
+second = a[6]
+
+print(f&quot;时：{hour}:分：{minute}:秒：{second}&quot;)
+while True:
+    a = rtc.datetime()
+    hour = a[4]
+    minute = a[5]
+    second = a[6]
+    display.numbers(hour,minute,1) # 时间显示，传递2个数值，最后一位1是点亮0是灭
+    time.sleep(0.5)
+    display.numbers(hour,minute,0)
+    time.sleep(0.5)#### 实验三：四位时钟数码管实时显示时间（非系统获取）
+</code></pre>
+<hr />
+<h4 id="_5">实验三：四位时钟数码管显示时间（中断方式）</h4>
+<hr />
+<ul>
+<li><strong>程序如下</strong></li>
+</ul>
+<pre><code class="language-python"># 导入第三方库文件
+from machine import Pin, RTC, Timer
+from libs.TM1637 import TM1637
+import utime
+
+# 硬件连接配置
+CLK_PIN = 22
+DIO_PIN = 21
+
+# 初始化硬件
+display = TM1637(clk=Pin(22),dio=Pin(21))
+rtc = RTC()  # 获取系统时间
+
+# 全局变量
+colon_state = True     # 冒号显示状态
+edit_mode = False      # 设置模式标志
+blink_counter = 0      # 闪烁计数器
+current_time = [12, 0] # 当前时间[小时, 分钟]
+
+def time_increment():
+    &quot;&quot;&quot;时间自动递增&quot;&quot;&quot;
+    current_time[1] += 1
+    if current_time[1] &gt;= 60:
+        current_time[1] = 0
+        current_time[0] += 1
+        if current_time[0] &gt;= 24:
+            current_time[0] = 0
+
+def update_display(h, m, show_colon=True):
+    &quot;&quot;&quot;更新显示内容&quot;&quot;&quot;
+    display.numbers(h,m,show_colon)  # 显示时间并在第二位显示冒号
+
+
+def clock_tick(timer):
+    &quot;&quot;&quot;定时器中断处理&quot;&quot;&quot;
+    global colon_state, blink_counter
+    colon_state = not colon_state  # 冒号闪烁
+
+    if not edit_mode:
+        time_increment()          # 正常模式自动走时
+    else:
+        blink_counter = (blink_counter + 1) % 6  # 设置模式闪烁周期
+
+    # 设置模式下的闪烁效果
+    show_colon = colon_state
+    if edit_mode:
+        if blink_counter &lt; 3:    # 闪烁当前编辑位
+            if blink_counter &lt; 4:
+                show_colon = False
+
+    # 获取RTC时间（实际使用时取消注释）
+    t = utime.localtime()
+    current_time = [t[3], t[4]]
+    update_display(*current_time, show_colon)
+
+
+# 配置硬件定时器（每秒触发）
+timer = Timer(0)
+timer.init(period=500, mode=Timer.PERIODIC, callback=clock_tick)
+
+# 主程序保持运行
+while True:
+    utime.sleep(1)
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/" class="btn btn-neutral float-left" title="14.四位数码管"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/" class="btn btn-neutral float-right" title="16.LCD液晶显示屏">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2025 乐启智玩具有限公司</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%E5%9B%9B%E4%BD%8D%E6%95%B0%E7%A0%81%E7%AE%A1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E5%B1%8F/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
