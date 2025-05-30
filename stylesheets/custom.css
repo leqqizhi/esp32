@@ -1,0 +1,5 @@
+/* docs/stylesheets/custom.css */
+.img/logo.png {
+  width: 80px;   /* 调整宽度 */
+  height: auto;   /* 高度自适应 */
+}
